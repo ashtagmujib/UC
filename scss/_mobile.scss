@@ -1,0 +1,40 @@
+
+@media (max-width:375px) {
+    body, .container {
+        width: 375px;
+    }
+
+
+    header {
+        width: 375px;
+        height: auto;
+        padding: 20px;
+    }
+
+
+
+    main {
+        width: 375px;
+    }
+    
+
+    
+    .input {
+        margin-top: 50px;
+        flex-wrap: wrap;
+
+        button {
+            margin-top: 20px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+}
+
