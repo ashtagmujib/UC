@@ -1,23 +1,25 @@
 // input constants
-const input = document.querySelector('.input'),
+const inputTab = document.querySelector('.input'),
    courseName = document.querySelector('#course-name'),
    courseUnit = document.querySelector('#course-unit'),
    courseGrade = document.querySelector('#course-grade'),
    addCourse = document.querySelector('#add-course'),
 
    output = document.querySelector('.output'),
-   outputControl = document.querySelector('.output-control')
+   outputControl = document.querySelector('.output-control'),
+   calculate = document.querySelector('#calculate')
 ;   
    
 
 
-
-input.addEventListener('submit', e => {
+inputTab.addEventListener('submit', e => {
     e.preventDefault();
     validateForm();
 
-    if(isValid = true) {
+    if(isValid) {
        createOutput();
+    } else {
+        console.log('input value is empty')
     }
 
 })
@@ -27,36 +29,33 @@ input.addEventListener('submit', e => {
 //from validation
 
 const validateForm = () => {
-    let course = courseName.value.trim(),
-        grade = courseGrade.value.trim(),
-        unit = courseUnit.value.trim()
+    let course = courseName.value,
+        grade = courseGrade.value,
+        unit = courseUnit.value
     ;   
     
     
-    if(courseName.value === '') {
+    if(course === '') {
         alert('please enter field');
         isValid = false;
     } else {
-        console.log(course);
         isValid = true;
     }
 
 
-    if(courseUnit.value === '') {
+    if(grade === '') {
         alert('please enter field');
         isValid = false;
     } else {
-        console.log(unit);
         isValid = true;
     }
 
 
-    if(courseGrade.value === '') {
+    if(unit === '') {
         alert('please enter field');
         isValid = false;
     } else {
-        console.log(grade);
-        isValid = false;
+        isValid = true;
     }
 
     
@@ -83,8 +82,8 @@ const createOutput = () => {
 
     // get text value from input and add to output
     courseOutput.innerText = courseName.value;
-    unitOutput.innerText = courseGrade.value;
-    gradeOutput.innerText = courseUnit.value;
+    unitOutput.innerText = courseUnit.value;
+    gradeOutput.innerText = courseGrade.value;
 
 
     // append to parent
@@ -94,4 +93,92 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
+    calculateUnits();
+
 }
+
+
+const calculateUnits = () => {
+    let courseDts = document.querySelectorAll('.course-dts');
+
+    courseDts.forEach(output => {
+        unitOutput = document.querySelector('.unit-output').innerText
+
+        console.log(unitOutput)
+        console.log(output)
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// calculate gpa   
+
+
+// const calculateUnits = () => {
+
+//     let courseDts = document.querySelectorAll('.course-dts'),
+//         units = [],
+//         unitSum = 0
+//     ;
+
+
+//     courseDts.forEach(output => {
+//         units.push(document.querySelector('.unit-output').innerText);
+
+//         // convert the array of strings to numbers
+//         let unitNum = units.map(toNumbers);
+//         function toNumbers(value) {
+//             return +value;
+//         }
+
+//         // sum up the numbers in the unit array
+//         for(let i = 0; i < unitNum.length; i++) {
+//             unitSum += unitNum[i] 
+//         }
+
+//         console.log(unitNum)
+//     });
+    
+
+
+    
+//     console.log(unitSum)
+//     console.log(units)
+
+    
+// }
