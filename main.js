@@ -18,6 +18,7 @@ inputTab.addEventListener('submit', e => {
 
     if(isValid) {
        createOutput();
+
     } else {
         console.log('input value is empty')
     }
@@ -63,15 +64,16 @@ const validateForm = () => {
 
 
 
+
 // create output elements
 
 const createOutput = () => {
     // create elements
 
     let courseDts = document.createElement('div');
-    let courseOutput = document.createElement('div');
-    let unitOutput = document.createElement('div');
-    let gradeOutput = document.createElement('div');
+    let courseOutput = document.createElement('p');
+    let unitOutput = document.createElement('p');
+    let gradeOutput = document.createElement('p');
      
     
     // add classname to elements
@@ -80,10 +82,14 @@ const createOutput = () => {
     unitOutput.className = 'unit-output';
     gradeOutput.className = 'grade-output';
 
+
+
     // get text value from input and add to output
     courseOutput.innerText = courseName.value;
     unitOutput.innerText = courseUnit.value;
     gradeOutput.innerText = courseGrade.value;
+
+
 
 
     // append to parent
@@ -93,25 +99,27 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
-    calculateUnits();
+
+
+    console.log(courseOutput.innerText)
+    console.log(unitOutput.innerText)
+    console.log(gradeOutput.innerText)
 
 }
 
 
-const calculateUnits = () => {
-    let courseDts = document.querySelectorAll('.course-dts');
-
-    courseDts.forEach(output => {
-        unitOutput = document.querySelector('.unit-output').innerText
-
-        console.log(unitOutput)
-        console.log(output)
-    })
-}
 
 
 
 
+
+//let x = sum up all the unit values
+
+//let y = multiply individual unit and grade value
+
+// let z = add upp all the values form all the grad and unit cal
+
+//let T =  divide  z form x
 
 
 
@@ -135,50 +143,18 @@ const calculateUnits = () => {
 
 
 
+    // courseDts.forEach(output => {
+    //     units.push(document.querySelector('.unit-output').innerText);
 
+    //     // convert the array of strings to numbers
+    //     let unitNum = units.map(toNumbers);
+    //     function toNumbers(value) {
+    //         return +value;
+    //     }
 
+    //     // sum up the numbers in the unit array
+    //     for(let i = 0; i < unitNum.length; i++) {
+    //         unitSum += unitNum[i] 
+    //     }
 
-
-
-
-
-
-
-
-
-// calculate gpa   
-
-
-// const calculateUnits = () => {
-
-//     let courseDts = document.querySelectorAll('.course-dts'),
-//         units = [],
-//         unitSum = 0
-//     ;
-
-
-//     courseDts.forEach(output => {
-//         units.push(document.querySelector('.unit-output').innerText);
-
-//         // convert the array of strings to numbers
-//         let unitNum = units.map(toNumbers);
-//         function toNumbers(value) {
-//             return +value;
-//         }
-
-//         // sum up the numbers in the unit array
-//         for(let i = 0; i < unitNum.length; i++) {
-//             unitSum += unitNum[i] 
-//         }
-
-//         console.log(unitNum)
-//     });
-    
-
-
-    
-//     console.log(unitSum)
-//     console.log(units)
-
-    
-// }
+    // });
