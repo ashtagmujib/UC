@@ -1,4 +1,4 @@
-// input constants
+// input and out put constants
 const inputTab = document.querySelector('.input'),
    courseName = document.querySelector('#course-name'),
    courseUnit = document.querySelector('#course-unit'),
@@ -8,31 +8,33 @@ const inputTab = document.querySelector('.input'),
    output = document.querySelector('.output'),
    outputControl = document.querySelector('.output-control'),
    calculate = document.querySelector('#calculate')
-;   
-   
+
+
+
+;    
+let isValid = false
+
+
 
 
 inputTab.addEventListener('submit', e => {
     e.preventDefault();
     validateForm();
 
-    if(isValid) {
+    if(isValid === true) {
        createOutput();
-
-    } else {
-        console.log('input value is empty')
-    }
+       calculateGpa()
+    } 
 
 })
 
 
 
 //from validation
-
 const validateForm = () => {
-    let course = courseName.value,
-        grade = courseGrade.value,
-        unit = courseUnit.value
+    let course = courseName.value.trim(),
+        grade = courseGrade.value.trim(),
+        unit = courseUnit.value.trim()
     ;   
     
     
@@ -66,10 +68,9 @@ const validateForm = () => {
 
 
 // create output elements
-
 const createOutput = () => {
-    // create elements
 
+    // create elements
     let courseDts = document.createElement('div');
     let courseOutput = document.createElement('p');
     let unitOutput = document.createElement('p');
@@ -100,10 +101,65 @@ const createOutput = () => {
     outputControl.appendChild(courseDts);
 
 
+}
 
-    console.log(courseOutput.innerText)
-    console.log(unitOutput.innerText)
-    console.log(gradeOutput.innerText)
+
+
+
+//calculate gpa
+const calculateGpa = () => {
+
+    const courseDts = document.querySelectorAll('.course-dts'),
+        courseOutput = document.querySelector('.course-output'),
+        unitOutput = Array.from(document.querySelectorAll('.unit-output')),
+        gradeOutput = document.querySelector('.grade-output')
+    ;
+
+
+    // calculation of unit total
+
+    let unitsTotal = [],
+        unitSum = 0;
+    ;
+
+    // add unit value to unitsTotal array
+    unitOutput.forEach(unit => {
+       let unitValue = unit.innerText
+       unitsTotal.push(unitValue);
+    })
+
+
+    // convert the array of strings to numbers
+    let unitNum = unitsTotal.map(toNumbers);
+    function toNumbers(value) {
+        return +value;
+    }
+
+
+    // sum up the numbers in the unit numbers
+    for(let i = 0; i < unitNum.length; i++) {
+        unitSum += unitNum[i] 
+    }
+
+
+    // console.log(unitsTotal)
+    // console.log(unitNum)
+    // console.log(unitSum)
+    // console.log(courseDts)
+
+
+
+    
+    // to delete later
+
+    // create element to display total unit in the dom
+    let totalUnit = document.querySelector('#unit-Total');
+    totalUnit.style.color = 'red';
+    totalUnit.style.fontSize = '20px';
+
+    totalUnit.innerText = unitSum;
+
+    // end of calculation for the unit total
 
 }
 
@@ -113,13 +169,6 @@ const createOutput = () => {
 
 
 
-//let x = sum up all the unit values
-
-//let y = multiply individual unit and grade value
-
-// let z = add upp all the values form all the grad and unit cal
-
-//let T =  divide  z form x
 
 
 
@@ -137,24 +186,3 @@ const createOutput = () => {
 
 
 
-
-
-
-
-
-
-    // courseDts.forEach(output => {
-    //     units.push(document.querySelector('.unit-output').innerText);
-
-    //     // convert the array of strings to numbers
-    //     let unitNum = units.map(toNumbers);
-    //     function toNumbers(value) {
-    //         return +value;
-    //     }
-
-    //     // sum up the numbers in the unit array
-    //     for(let i = 0; i < unitNum.length; i++) {
-    //         unitSum += unitNum[i] 
-    //     }
-
-    // });
