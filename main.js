@@ -3,16 +3,15 @@ const inputTab = document.querySelector('.input'),
    courseName = document.querySelector('#course-name'),
    courseUnit = document.querySelector('#course-unit'),
    courseGrade = document.querySelector('#course-grade'),
+   gradeValue = document.querySelector('#grade-value'),
    addCourse = document.querySelector('#add-course'),
 
    output = document.querySelector('.output'),
    outputControl = document.querySelector('.output-control'),
    calculate = document.querySelector('#calculate')
+;  
 
-
-
-;    
-let isValid = false
+let isValid = false;
 
 
 
@@ -30,23 +29,57 @@ inputTab.addEventListener('submit', e => {
 
 
 
+courseGrade.addEventListener('click', e => {
+    courseGrade.classList.toggle('active');
+
+    if(e.target.matches('#grade')) {
+        gradeValue.innerText = e.target.innerText;
+        
+        switch (e.target.innerText) {
+            case 'A':
+                let A = 5;
+                console.log(A)
+            break;  
+            
+            case 'B':
+                let B = 4;
+                console.log(B)
+            break;  
+
+            case 'C':
+                let C = 3;
+                console.log(C)
+            break;  
+
+            case 'D':
+                let D = 2;
+                console.log(D)
+            break;  
+
+
+            case 'E':
+                let E = 1;
+                console.log(E)
+            break;  
+
+            
+            case 'F':
+                let F = 0;
+                console.log(F)
+            break; 
+        }
+    }
+})
+
+
 //from validation
 const validateForm = () => {
     let course = courseName.value.trim(),
-        grade = courseGrade.value.trim(),
         unit = courseUnit.value.trim()
     ;   
     
     
     if(course === '') {
-        alert('please enter field');
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-
-    if(grade === '') {
         alert('please enter field');
         isValid = false;
     } else {
@@ -88,7 +121,7 @@ const createOutput = () => {
     // get text value from input and add to output
     courseOutput.innerText = courseName.value;
     unitOutput.innerText = courseUnit.value;
-    gradeOutput.innerText = courseGrade.value;
+    gradeOutput.innerText = gradeValue.innerText;
 
 
 
@@ -100,7 +133,6 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
-
 }
 
 
@@ -109,18 +141,41 @@ const createOutput = () => {
 //calculate gpa
 const calculateGpa = () => {
 
-    const courseDts = document.querySelectorAll('.course-dts'),
+    const
+        courseDts = document.querySelectorAll('.course-dts'), 
         courseOutput = document.querySelector('.course-output'),
-        unitOutput = Array.from(document.querySelectorAll('.unit-output')),
-        gradeOutput = document.querySelector('.grade-output')
+        gradeOutput = document.querySelectorAll('.grade-output')
     ;
 
+    //sum up the units value
+    calculatetotalUnit()
 
-    // calculation of unit total
+    // multiply grade and unit value
+    gradeXunit()
+
+   let grades = [];
+
+    gradeOutput.forEach(grade => {
+        let gradeValue = grade.innerText;
+
+        grades.push(gradeValue)
+    })
+
+}
+
+
+
+
+
+
+
+const calculatetotalUnit = () => {
+    const unitOutput = Array.from(document.querySelectorAll('.unit-output'));     
 
     let unitsTotal = [],
         unitSum = 0;
     ;
+
 
     // add unit value to unitsTotal array
     unitOutput.forEach(unit => {
@@ -142,14 +197,6 @@ const calculateGpa = () => {
     }
 
 
-    // console.log(unitsTotal)
-    // console.log(unitNum)
-    // console.log(unitSum)
-    // console.log(courseDts)
-
-
-
-    
     // to delete later
 
     // create element to display total unit in the dom
@@ -159,9 +206,36 @@ const calculateGpa = () => {
 
     totalUnit.innerText = unitSum;
 
-    // end of calculation for the unit total
 
+    // console.log(unitsTotal)
+    // console.log(unitNum)
+    // console.log(unitSum)
 }
+
+
+
+
+
+const gradeXunit = () => {
+    const courseDts = document.querySelectorAll('.course-dts')
+
+    courseDts.forEach(course => {
+        
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

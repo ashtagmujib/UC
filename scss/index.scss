@@ -82,6 +82,10 @@ main {
     justify-content: space-between;
     padding: 20px;
 
+    .input-control {
+        position: relative;
+    }
+
     #course-name {
         @extend %input;
         width: 200px;
@@ -98,7 +102,79 @@ main {
         @extend %input;
         width: 50px;
         height: 20px;
+
+        opacity: 1;
+        position: relative;
+        z-index: 1000;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: 10px;
+
+            width: 8px;
+            height: 8px;
+            border: 1px solid white;
+            border-right: 0;
+            border-top: 0;
+
+            transform: rotate(-45deg);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        
+
+
+
+        &.active::before {
+            top: 7px;
+            transform: rotate(135deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        &.active .grade-options {
+            display: flex;
+        }
+
     }
+
+
+    .grade-options {
+        position: absolute;
+        top: 30px;
+        display: flex;
+        flex-direction: column;
+        
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+
+        background-color: blue;
+        display: none;
+
+        #grade{
+            text-align: center;
+            width: 100%;
+            color: white;
+            padding: 5px;
+        }
+
+        #grade:hover {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+    }
+
+
+    
+
+
+
+
+
+
 
     button {
         @extend %input;
