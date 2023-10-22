@@ -34,42 +34,15 @@ courseGrade.addEventListener('click', e => {
 
     if(e.target.matches('#grade')) {
         gradeValue.innerText = e.target.innerText;
-        
-        switch (e.target.innerText) {
-            case 'A':
-                let A = 5;
-                console.log(A)
-            break;  
-            
-            case 'B':
-                let B = 4;
-                console.log(B)
-            break;  
-
-            case 'C':
-                let C = 3;
-                console.log(C)
-            break;  
-
-            case 'D':
-                let D = 2;
-                console.log(D)
-            break;  
-
-
-            case 'E':
-                let E = 1;
-                console.log(E)
-            break;  
-
-            
-            case 'F':
-                let F = 0;
-                console.log(F)
-            break; 
-        }
     }
 })
+
+
+
+
+
+
+
 
 
 //from validation
@@ -141,25 +114,17 @@ const createOutput = () => {
 //calculate gpa
 const calculateGpa = () => {
 
-    const
-        courseDts = document.querySelectorAll('.course-dts'), 
-        courseOutput = document.querySelector('.course-output'),
-        gradeOutput = document.querySelectorAll('.grade-output')
-    ;
+    // const
+    //     courseDts = document.querySelectorAll('.course-dts'), 
+    //     courseOutput = document.querySelector('.course-output'),
+    //     gradeOutput = document.querySelectorAll('.grade-output')
+    // ;
 
     //sum up the units value
     calculatetotalUnit()
 
     // multiply grade and unit value
     gradeXunit()
-
-   let grades = [];
-
-    gradeOutput.forEach(grade => {
-        let gradeValue = grade.innerText;
-
-        grades.push(gradeValue)
-    })
 
 }
 
@@ -217,11 +182,63 @@ const calculatetotalUnit = () => {
 
 
 const gradeXunit = () => {
-    const courseDts = document.querySelectorAll('.course-dts')
+    const courseDts = document.querySelectorAll('.course-dts'),
+        grade = document.querySelectorAll('#grade'), 
+        gradeOutput = document.querySelector('.grade-output')
+    ;
+
+    let scorePerCourse;
+
+
 
     courseDts.forEach(course => {
+       let unitOutput = course.querySelector('.unit-output');
+        let gradeOutput = course.querySelector('.grade-output');
+
+
+        if(gradeOutput.innerText) {
+
+            switch (gradeOutput.innerText) {
+                case 'A':
+                    let A = 5;
+                break;  
+                
+                case 'B':
+                    let B = 4;
+                break;  
         
+                case 'C':
+                    let C = 3;
+                break;  
+        
+                case 'D':
+                    let D = 2;
+                break;  
+        
+        
+                case 'E':
+                    let E = 1;
+                break;  
+        
+                
+                case 'F':
+                    let F = 0;
+                break; 
+            }
+            
+        }
+
+        console.log(unitOutput.innerText)
+        console.log(gradeOutput.innerText)
     })
+
+
+    //console.log(course)
+    //console.log(courseOutput.innerText)
+
+    // console.log(grade.innerText)
+
+
 }
 
 
