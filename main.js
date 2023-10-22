@@ -114,17 +114,15 @@ const createOutput = () => {
 //calculate gpa
 const calculateGpa = () => {
 
-    // const
-    //     courseDts = document.querySelectorAll('.course-dts'), 
-    //     courseOutput = document.querySelector('.course-output'),
-    //     gradeOutput = document.querySelectorAll('.grade-output')
-    // ;
-
     //sum up the units value
     calculatetotalUnit()
 
     // multiply grade and unit value
     gradeXunit()
+
+
+    // divide the total course value form the total credit
+    gpa()
 
 }
 
@@ -181,68 +179,87 @@ const calculatetotalUnit = () => {
 
 
 
+
+
+
 const gradeXunit = () => {
     const courseDts = document.querySelectorAll('.course-dts'),
-        grade = document.querySelectorAll('#grade'), 
-        gradeOutput = document.querySelector('.grade-output')
+        courseTotal = document.querySelector('#course-Total')
     ;
 
-    let scorePerCourse;
-
-
+    let scorePerCourse = [],
+        csTotal = 0;
+    ;   
 
     courseDts.forEach(course => {
        let unitOutput = course.querySelector('.unit-output');
         let gradeOutput = course.querySelector('.grade-output');
 
-
         if(gradeOutput.innerText) {
 
             switch (gradeOutput.innerText) {
                 case 'A':
-                    let A = 5;
+                    gradeOutput.innerText = 5;
                 break;  
                 
                 case 'B':
-                    let B = 4;
+                    gradeOutput.innerText = 4;
                 break;  
         
                 case 'C':
-                    let C = 3;
+                    gradeOutput.innerText = 3;
                 break;  
         
                 case 'D':
-                    let D = 2;
+                    gradeOutput.innerText = 2;
                 break;  
         
         
                 case 'E':
-                    let E = 1;
+                    gradeOutput.innerText = 1;
                 break;  
         
                 
                 case 'F':
-                    let F = 0;
+                    gradeOutput.innerText = 0;
                 break; 
+                
             }
             
         }
 
-        console.log(unitOutput.innerText)
-        console.log(gradeOutput.innerText)
+        scorePerCourse.push(gradeOutput.innerText * unitOutput.innerText);
+        // console.log(gradeOutput.innerText)
+        // console.log(unitOutput.innerText)
     })
 
 
-    //console.log(course)
-    //console.log(courseOutput.innerText)
+    // sum up the numbers in the unit numbers
+    for(let i = 0; i < scorePerCourse.length; i++) {
+        csTotal += scorePerCourse[i];
+    }
 
-    // console.log(grade.innerText)
+
+    // to delete soon
+    courseTotal.innerText = csTotal;
+    // console.log(scorePerCourse)
 
 
 }
 
 
 
+const gpa = () => {
+    const courseTotal = document.querySelector('#course-Total').innerText,
+        unitsTotal = document.querySelector('#unit-Total').innerText,
+        GPA = document.querySelector('#gpa')
+    ;
+
+    let gpa = courseTotal / unitsTotal;
+    GPA.innerText = gpa
+
+    // console.log(gpa)
+}
 
 
 
