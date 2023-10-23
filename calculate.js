@@ -193,42 +193,46 @@ const gradeXunit = () => {
     ;   
 
     courseDts.forEach(course => {
-       let unitOutput = course.querySelector('.unit-output');
-        let gradeOutput = course.querySelector('.grade-output');
+        let unitOutput = course.querySelector('.unit-output'),
+            gradeOutput = course.querySelector('.grade-output'),
+            gradeOutputTonumber = gradeOutput.innerText;
+        ;
 
         if(gradeOutput.innerText) {
 
-            switch (gradeOutput.innerText) {
+            switch (gradeOutputTonumber) {
                 case 'A':
-                    gradeOutput.innerText = 5;
+                    gradeOutputTonumber = 5;
                 break;  
                 
                 case 'B':
-                    gradeOutput.innerText = 4;
+                    gradeOutputTonumber = 4;
                 break;  
         
                 case 'C':
-                    gradeOutput.innerText = 3;
+                    gradeOutputTonumber = 3;
                 break;  
         
                 case 'D':
-                    gradeOutput.innerText = 2;
+                    gradeOutputTonumber = 2;
                 break;  
         
         
                 case 'E':
-                    gradeOutput.innerText = 1;
+                    gradeOutputTonumber = 1;
                 break;  
                 
                 case 'F':
-                    gradeOutput.innerText = 0;
+                    gradeOutputTonumber = 0;
                 break; 
                 
             }
             
         }
 
-        scorePerCourse.push(gradeOutput.innerText * unitOutput.innerText);
+        scorePerCourse.push(gradeOutputTonumber * unitOutput.innerText);
+
+        // console.log(gradeOutputTonumber)
         // console.log(gradeOutput.innerText)
         // console.log(unitOutput.innerText)
     })
@@ -245,6 +249,8 @@ const gradeXunit = () => {
     // console.log(scorePerCourse)
 
 }
+
+
 
 
 
