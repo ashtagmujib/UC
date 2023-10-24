@@ -1,3 +1,15 @@
+@font-face {
+    font-family: welcome-text;
+    src: url(/assets/LeagueSpartan-VariableFont_wght.ttf);
+}
+
+// colors
+$blue :#0000FE;
+$orange:#FF5A25;
+$black:#000;
+$white:#fff;
+
+
 %input {
     outline: none;  
     border: none;

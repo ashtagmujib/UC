@@ -1,5 +1,6 @@
 @import 'general';
 
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,13 +12,17 @@ body {
     width: 1440px;
     height: auto;
     margin: 0 auto;
+    background-color: $white;
 }
 
 .container {
     width: 1440px;
     height: auto;
     position: relative;
+    background-color: $white;
 }
+
+
 
 header {
     width: 1440px;
@@ -28,13 +33,39 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    & >* {
+    div {
         width: 40px;
         height: 20px;
-        background: blue;
         border-radius: 5px;
     }
+
+    #logo {
+        background-color: $blue;
+    }
+
+    .theme-icons {
+        position: relative;
+    }
+
+    #moon, #sun {
+        width: 30px;
+        height: 30px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #sun {
+        display: none;
+    }
+
+    #moon {
+        display: block;
+    }
 }
+
+
 
 main {
     width: 1440px;
@@ -48,9 +79,49 @@ main {
     .image {
         width: 100%;
         height: 300px;
-        background-color: blue;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         border-radius: 5px;
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        #border {
+            border:5px solid $blue;
+            border-radius: 5px;
+            position: absolute;
+
+
+
+            &:first-of-type {
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 50px;
+                border-right: none;
+                border-bottom: none;
+            }
+
+
+            &:last-of-type {
+                bottom: 0;
+                right: 0;
+                width: 70px;
+                height: 110px;
+
+                border-top: none;
+                border-left: none;
+            }
+        }
+
+        h1 {
+            color: $blue;
+            text-align: center;
+            font-family: welcome-text;
+            font-size: 70px;
+        }
     }
 
     p {
@@ -60,15 +131,44 @@ main {
 
     button {
         width: 50%;
-        height: 20px;
+        height: 25px;
+
         border-radius: 5px;
-        margin-top: 50px;
-        background-color: blue;
+        margin-top: 90px;
+        background-color: $blue;
         outline: none;
         border: 0;
+
+        text-align: center;
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
