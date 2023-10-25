@@ -111,8 +111,6 @@ const createOutput = () => {
 }
 
 
-
-
 //calculate gpa
 const calculateGpa = () => {
 
