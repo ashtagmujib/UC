@@ -150,18 +150,26 @@ main {
         color: $black;
     }
 
-    button {
+    a {
         width: 50%;
         height: 25px;
-
         border-radius: 5px;
         margin-top: 90px;
-        background-color: $blue;
-        outline: none;
-        border: 0;
+        text-decoration: none;
 
-        text-align: center;
+        button {
+            background-color: $blue;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            color: $white;
+            outline: none;
+            border: 0;
+    
+            text-align: center;
+        }
     }
+
 
 }
 
@@ -238,6 +246,7 @@ main {
 
     #grade-value {
         font-size: 14px;
+        color: $white;
     }
 
 
@@ -309,6 +318,7 @@ main {
         }
     }
 
+
     button {
         width: 100%;
         height: 20px;
@@ -319,6 +329,8 @@ main {
         border-radius: 5px;
         margin-top: 50px;
     }
+    
+
 }
 
 
@@ -342,5 +354,55 @@ main {
     }
 }
 
+
+.blur {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+    display: none;
+}
+
+.result-display {
+    width: 80%;
+    height: 300px;
+    border-radius: 10px;
+
+    background-color: $white;
+    color: $black;
+    z-index: 2000;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+
+    #close {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: -30px;
+        right: 0;
+    }
+
+    #unit-total{
+        font-size: 15px;
+    }
+
+    #course-total{
+        font-size: 25px;
+    }
+
+    #unit-total{
+        font-size: 30px;
+    }
+}
 
 @import 'mobile';

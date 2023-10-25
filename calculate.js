@@ -161,11 +161,7 @@ const calculatetotalUnit = () => {
 
     // to delete later
 
-    // create element to display total unit in the dom
-    let totalUnit = document.querySelector('#unit-Total');
-    totalUnit.style.color = 'red';
-    totalUnit.style.fontSize = '20px';
-
+    // display total unit
     totalUnit.innerText = unitSum;
 
 
@@ -266,3 +262,23 @@ const gpa = () => {
 }
 
 
+
+
+// display grade
+
+const 
+    blur = document.querySelector('.blur'),
+    resultDisplay = document.querySelector('.result-display'),
+    closeBtn = document.querySelector('#close')
+;    
+
+
+calculate.addEventListener('click', () => {
+    blur.style.display = 'block';
+    resultDisplay.style.display = 'flex';
+
+    closeBtn.addEventListener('click', () => {
+        blur.style.display = 'none';
+        resultDisplay.style.display = 'none';
+    })
+})

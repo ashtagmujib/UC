@@ -15,12 +15,10 @@ sun.addEventListener('click', e=> {
     document.querySelector('body').style.backgroundColor = '#fff';
     document.querySelector('.container').style.backgroundColor = '#fff';
     document.querySelector('p').style.color = '#000';
-
+    
     moon.style.display = 'block';
     sun.style.display = 'none';
 })
-
-
 
 
 
