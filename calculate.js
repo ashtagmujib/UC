@@ -22,7 +22,6 @@ inputTab.addEventListener('submit', e => {
 
     if(isValid === true) {
        createOutput();
-       calculateGpa()
     } else {
         alert('please enter field');
     }
@@ -31,6 +30,10 @@ inputTab.addEventListener('submit', e => {
 
 
 
+
+//from validation
+
+// grade selcetion
 courseGrade.addEventListener('click', e => {
     courseGrade.classList.toggle('active');
 
@@ -40,11 +43,8 @@ courseGrade.addEventListener('click', e => {
 })
 
 
+// input tabs validation
 
-
-
-
-//from validation
 const validateForm = () => {
     let course = courseName.value.trim(),
         unit = courseUnit.value.trim(),
@@ -73,6 +73,8 @@ const validateForm = () => {
 
     
 }
+
+
 
 
 
@@ -108,7 +110,12 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
+    courseName.value = '';
+    courseUnit.value = '';
+    gradeValue.innerText = '';
 }
+
+
 
 
 //calculate gpa
@@ -162,6 +169,7 @@ const calculatetotalUnit = () => {
     // to delete later
 
     // display total unit
+    const totalUnit = document.querySelector('#unit-Total')
     totalUnit.innerText = unitSum;
 
 
@@ -274,6 +282,9 @@ const
 
 
 calculate.addEventListener('click', () => {
+    calculateGpa()
+    
+    document.querySelector('.container').style.overflow = 'hidden';
     blur.style.display = 'block';
     resultDisplay.style.display = 'flex';
 

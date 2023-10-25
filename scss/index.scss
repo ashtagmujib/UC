@@ -370,7 +370,6 @@ main {
     border-radius: 10px;
 
     background-color: $white;
-    color: $black;
     z-index: 2000;
     position: absolute;
     top: 20%;
@@ -394,14 +393,17 @@ main {
 
     #unit-total{
         font-size: 15px;
+        color: red;
     }
 
     #course-total{
         font-size: 25px;
+        color: red;
     }
 
     #unit-total{
         font-size: 30px;
+        color: red;
     }
 }
 
