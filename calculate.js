@@ -293,3 +293,28 @@ calculate.addEventListener('click', () => {
         resultDisplay.style.display = 'none';
     })
 })
+
+
+
+
+// delete course
+outputControl.addEventListener('click', e => {
+    if(e.target.classList.contains('course-dts')) {
+        e.target.classList.toggle('delete');
+
+        let removeCourse = document.createElement('div');
+        removeCourse.classList = 'remove-course';
+
+        e.target.appendChild(removeCourse);
+
+        removeCourse.addEventListener('click', e => {
+            let target = e.target.parentElement
+            target.classList.add('deleted');
+
+            setTimeout(() => {
+                outputControl.removeChild(target)
+            }, 600);
+
+        })
+    }
+})
