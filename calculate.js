@@ -22,9 +22,29 @@ inputTab.addEventListener('submit', e => {
 
     if(isValid === true) {
        createOutput();
-    } else {
-        alert('please enter field');
+    } 
+    else {
+
+        blur.style.display = 'block';
+        let  msg = document.createElement('div');
+        msg.className = 'error-msg';
+
+        let removeMsg = document.createElement('p');
+        removeMsg.innerText = 'close';
+        removeMsg.className = 'close-alert'
+        let msgValue = document.createTextNode('please enter all fields');
+
+        msg.appendChild(msgValue)
+        msg.appendChild(removeMsg)
+
+        document.querySelector('body').appendChild(msg)
+
+        removeMsg.addEventListener('click', () => {
+            blur.style.display = 'none';
+            msg.style.display = 'none';
+        })
     }
+    
 
 })
 
@@ -52,20 +72,7 @@ const validateForm = () => {
     ;   
     
     
-    if(course === '') {
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-
-    if(unit === '') {
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-    if(grade === '') {
+    if(course === ''|| unit === '' || grade === '' ) {
         isValid = false;
     } else {
         isValid = true;
