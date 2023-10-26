@@ -22,11 +22,32 @@ inputTab.addEventListener('submit', e => {
 
     if(isValid === true) {
        createOutput();
-    } else {
-        alert('please enter field');
+    } 
+    
+    else {
+
+        blur.style.display = 'block';
+        let  msg = document.createElement('div');
+        msg.className = 'error-msg';
+
+        let removeMsg = document.createElement('p');
+        removeMsg.innerText = 'close';
+        removeMsg.className = 'close-alert'
+        let msgValue = document.createTextNode('please enter all fields');
+
+        msg.appendChild(msgValue)
+        msg.appendChild(removeMsg)
+
+        document.querySelector('body').appendChild(msg)
+
+        removeMsg.addEventListener('click', () => {
+            blur.style.display = 'none';
+            msg.style.display = 'none';
+        })
     }
 
 })
+
 
 
 
@@ -52,29 +73,13 @@ const validateForm = () => {
     ;   
     
     
-    if(course === '') {
+    if(course === '' || unit === '' || grade === '') {
         isValid = false;
     } else {
         isValid = true;
     }
-
-
-    if(unit === '') {
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-    if(grade === '') {
-        isValid = false;
-    } else {
-        isValid = true;
-    }
-
-    
+ 
 }
-
-
 
 
 
@@ -165,17 +170,9 @@ const calculatetotalUnit = () => {
         unitSum += unitNum[i] 
     }
 
-
-    // to delete later
-
     // display total unit
     const totalUnit = document.querySelector('#unit-Total')
     totalUnit.innerText = unitSum;
-
-
-    // console.log(unitsTotal)
-    // console.log(unitNum)
-    // console.log(unitSum)
 }
 
 
@@ -233,10 +230,6 @@ const gradeXunit = () => {
         }
 
         scorePerCourse.push(gradeOutputTonumber * unitOutput.innerText);
-
-        // console.log(gradeOutputTonumber)
-        // console.log(gradeOutput.innerText)
-        // console.log(unitOutput.innerText)
     })
 
 
@@ -245,10 +238,6 @@ const gradeXunit = () => {
         csTotal += scorePerCourse[i];
     }
 
-
-    // to delete soon
-    courseTotal.innerText = csTotal;
-    // console.log(scorePerCourse)
 
 }
 
@@ -265,8 +254,6 @@ const gpa = () => {
 
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
-
-    // console.log(gpa)
 }
 
 
