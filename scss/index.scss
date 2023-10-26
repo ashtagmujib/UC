@@ -299,6 +299,12 @@ main {
     padding: 20px;
     margin-top: 30px;
 
+
+    .output-control {
+        overflow-x: hidden;
+    }
+
+
     .course-dts {
         width: 100%;
         height: 30px;
@@ -312,9 +318,30 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        position: relative;
 
         & >* {
             padding: 5px;
+        }
+
+        &.delete {
+            scale: 90%;
+            transform: translateX(-20px);
+            transition: all 0.1s ease-in-out;
+        }
+
+        .remove-course {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            top: 5px;
+            right: -35px;
+        }
+
+        &.deleted {
+            transform: translateX(-150%);
         }
     }
 
