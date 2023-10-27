@@ -69,6 +69,7 @@ header {
         border-radius: 5px;
     }
 
+
     #logo {
         background-color: $blue;
         opacity: 0;
@@ -79,26 +80,26 @@ header {
         position: relative;
     }
 
-    #moon, #sun {
-        width: 25px;
-        height: 25px;
+    // #moon, #sun {
+    //     width: 25px;
+    //     height: 25px;
 
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    // }
 
-    #sun {
-        display: none;
+    // #sun {
+    //     display: none;
 
-        & path {
-           fill:$white; 
-        }
-    }
+    //     & path {
+    //        fill:$white; 
+    //     }
+    // }
 
-    #moon {
-        display:block;
-    }
+    // #moon {
+    //     display:block;
+    // }
 }
 
 
@@ -123,17 +124,17 @@ main {
         align-items: center;
         justify-content: center;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: 60%;
-            left: 20px;
-            width: 20%;
-            height: 1px;
-            background-color: $blue;
+        // &::after {
+        //     content: '';
+        //     position: absolute;
+        //     top: 60%;
+        //     left: 20px;
+        //     width: 20%;
+        //     height: 1px;
+        //     background-color: $blue;
 
 
-        }
+        // }
 
 
         #border {
