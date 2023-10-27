@@ -1,4 +1,6 @@
 @import 'general';
+@import 'homepage';
+@import 'calculate';
 
 
 * {
@@ -15,35 +17,6 @@ body {
     background-color: $white;
 }
 
-.error-msg {
-    width: 80%;
-    height: 150px;
-    padding: 40px 20px;
-    border-radius: 10px;
-    background-color: $white;
-    z-index: 3000;
-    position: absolute;
-    top: 25%;
-    left: 10%;
-
-    text-align: center;
-    font-size: 20px;
-    letter-spacing: 2px;
-
-
-    .close-alert {
-        width: 100%;
-        height: 30px;
-        background-color: $blue;
-        border-radius: 5px;
-        margin-top: 30px;
-        color: $white;
-        text-align: center;
-        letter-spacing: 5px;
-    }
-}
-
-
 
 .container {
     width: 1440px;
@@ -51,7 +24,6 @@ body {
     position: relative;
     background-color: $white;
 }
-
 
 
 header {
@@ -64,406 +36,56 @@ header {
     justify-content: space-between;
 
     div {
-        width: 40px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         border-radius: 5px;
+        background-color: $blue;
     }
+
 
 
     #logo {
-        background-color: $blue;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .theme-icons {
         position: relative;
-    }
-
-    // #moon, #sun {
-    //     width: 25px;
-    //     height: 25px;
-
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    // }
-
-    // #sun {
-    //     display: none;
-
-    //     & path {
-    //        fill:$white; 
-    //     }
-    // }
-
-    // #moon {
-    //     display:block;
-    // }
-}
-
-
-
-main {
-    width: 1440px;
-    margin-top: 50px;
-    padding: 20px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .image {
-        width: 100%;
-        height: 300px;
-        margin-bottom: 30px;
-        border-radius: 5px;
-
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        // &::after {
-        //     content: '';
-        //     position: absolute;
-        //     top: 60%;
-        //     left: 20px;
-        //     width: 20%;
-        //     height: 1px;
-        //     background-color: $blue;
-
-
-        // }
-
-
-        #border {
-            border:3px solid $blue;
-            border-radius: 5px;
-            position: absolute;
-
-
-
-            &:first-of-type {
-                top: 0;
-                left: 0;
-                width: 100px;
-                height: 50px;
-                border-right: none;
-                border-bottom: none;
-            }
-
-
-            &:last-of-type {
-                bottom: 0;
-                right: 0;
-                width: 70px;
-                height: 110px;
-
-                border-top: none;
-                border-left: none;
-            }
-        }
-
-        h1 {
-            color: $blue;
-            text-align: center;
-            font-family: welcome-text;
-            font-size: 70px;
-            z-index: 100;
-        }
-    }
-
-
-    p {
-        text-align: center;
-        letter-spacing: 1px;
-        color: $black;
-    }
-
-    a {
-        width: 50%;
-        height: 25px;
-        border-radius: 5px;
-        margin-top: 90px;
-        text-decoration: none;
-
-        button {
-            background-color: $blue;
-            border-radius: 5px;
-            width: 100%;
-            height: 100%;
-            color: $white;
-            outline: none;
-            border: 0;
-    
-            text-align: center;
-        }
-    }
-
-
-}
-
-
-
-.input {
-    width: 100%;
-    height: auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    color: $white;
-
-    .input-control {
-        position: relative;
-    }
-
-    #course-name {
-        @extend %input;
-        width: 200px;
-        height: 20px;
-    }
-    
-    #course-unit {
-        @extend %input;
-        width: 50px;
-        height: 20px;
-    }
-
-    #course-grade {
-        @extend %input;
-        width: 50px;
-        height: 20px;
-        position: relative;
-        z-index: 1000;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        border-radius: 50%;
+        transform: scale(110%);
+        animation: animate 3s ease-in-out infinite;
 
         &::before {
-            content: '';
-            position: absolute;
-            top: 3px;
-            right: 10px;
-
-            width: 8px;
-            height: 8px;
-            border: 1px solid white;
-            border-right: 0;
-            border-top: 0;
-
-            transform: rotate(-45deg);
-            transition: transform 0.3s ease-in-out;
-            z-index: 1000;
-        }
-
-        
-
-
-        &.active::before {
-            top: 7px;
-            transform: rotate(135deg);
-            transition: transform 0.3s ease-in-out;
-        }
-        &.active .grade-options {
-            display: flex;
-        }
-
-    }
-
-
-    #grade-value {
-        font-size: 14px;
-        color: $white;
-    }
-
-
-    .grade-options {
-        position: absolute;
-        top: 30px;
-        display: flex;
-        flex-direction: column;
-        
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-
-        background-color: blue;
-        display: none;
-
-        #grade{
-            text-align: center;
-            width: 100%;
-            color: white;
-            padding: 5px;
-            font-size: 15px;
-        }
-
-        #grade:hover {
-            background-color: white;
-            color: black;
-            border-radius: 5px;
-        }
-    }
-
-
-
-    button {
-        @extend %input;
-        width: 100px;
-        height: 20px; 
-        color: $white; 
-    }
-}
-
-
-
-
-
-.output {
-    width: 100%;
-    height: auto;
-
-    padding: 20px;
-    margin-top: 30px;
-
-
-    .output-control {
-        overflow-x: hidden;
-    }
-
-
-    .course-dts {
-        width: 100%;
-        height: 30px;
-        padding: 0 10px;
-        background-color: blue;
-        color: $white;
-        border-radius: 10px;
-
-        margin-bottom: 20px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-
-        & >* {
-            padding: 5px;
-        }
-
-        &.delete {
-            scale: 90%;
-            transform: translateX(-20px);
-            transition: all 0.1s ease-in-out;
-        }
-
-        .remove-course {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: red;
+            content:'';
             position: absolute;
             top: 5px;
-            right: -35px;
+            right: -10px;
+            background-color: $blue;
+            opacity: 50%;
+
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+           animation: animate 3s ease-in-out infinite;
         }
 
-        &.deleted {
-            transform: translateX(-150%);
-            transition: all 0.3s ease-in-out;
+
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(2px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
     }
 
 
-    button {
-        width: 100%;
-        height: 20px;
-        background-color: blue;
-        color: $white;
-        outline: none;
-        border: 0;
-        border-radius: 5px;
-        margin-top: 50px;
-    }
-    
+
+
 
 }
 
-
-
-
-.grade-msg {
-    width: 100%;
-    height: auto;
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-
-    .msg {
-        width: 100%;
-        height: 400px;
-        background-color: blue;
-        border-radius: 5px;
-    }
-}
-
-
-.blur {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1500;
-    display: none;
-}
-
-.result-display {
-    width: 80%;
-    height: 300px;
-    border-radius: 10px;
-
-    background-color: $white;
-    z-index: 2000;
-    position: absolute;
-    top: 20%;
-    left: 10%;
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    display: none;
-
-
-    #close {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        background-color: red;
-        position: absolute;
-        top: -30px;
-        right: 0;
-    }
-
-    #unit-total{
-        font-size: 15px;
-        color: red;
-    }
-
-    #course-total{
-        font-size: 25px;
-        color: red;
-    }
-
-    #unit-total{
-        font-size: 30px;
-        color: red;
-    }
-}
 
 @import 'mobile';
