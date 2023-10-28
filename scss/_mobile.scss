@@ -1,5 +1,5 @@
 
-@media (max-width:375px) {
+@media (max-width:414px) {
     body, .container {
         width: 375px;
         overflow-x: hidden;
@@ -12,6 +12,18 @@
         padding: 20px;
     }
 
+    // #back {
+    //     background-color: red;
+    //     text-decoration: none;
+
+    //     margin-left: 0
+    
+    //     img {
+    //         width: 100px;
+    //         height: 40px;
+    //         margin-top: 20px;
+    //     }
+    // }
 
 
     main {
@@ -21,7 +33,6 @@
 
     
     .input {
-        margin-top: 50px;
         flex-wrap: wrap;
 
         button {
