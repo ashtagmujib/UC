@@ -94,7 +94,9 @@ img {
         border-radius: 5px;
 
         background-color: blue;
+        box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.4);
         display: none;
+
 
         #grade{
             text-align: center;
@@ -118,6 +120,9 @@ img {
         width: 100px;
         height: 20px; 
         color: $white; 
+        text-align: center;
+        font-size: 13px;
+        box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -182,13 +187,15 @@ img {
 
     button {
         width: 100%;
-        height: 20px;
+        height: 30px;
         background-color: blue;
         color: $white;
         outline: none;
         border: 0;
         border-radius: 5px;
         margin-top: 50px;
+
+        box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.3);
     }
     
 
@@ -206,6 +213,8 @@ img {
     align-items: center;
     justify-content: center;
     margin-top: 30px;
+
+    box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.9);
 
     .msg {
         width: 100%;
