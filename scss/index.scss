@@ -49,7 +49,7 @@ header {
         border-radius: 50%;
         transform: scale(110%);
         animation: animate 3s ease-in-out infinite;
-        box-shadow: 1px 1px 70px 3px $blue;
+        box-shadow: 1px 1px 90px 3px $blue;
 
         &::before {
             content:'';
@@ -73,7 +73,7 @@ header {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        box-shadow: 1px 1px 70px 3px $blue;
+        box-shadow: 1px 1px 90px 3px $blue;
 
         & > * {
             width: 80%;
