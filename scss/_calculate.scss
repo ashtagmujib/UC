@@ -26,12 +26,28 @@ img {
         @extend %input;
         width: 200px;
         height: 20px;
+
+        &::placeholder {
+            color: $white;
+            font-family: welcome-text;
+            font-size: 15px;
+            opacity: 80%;
+            letter-spacing: 1px;
+        }
     }
     
     #course-unit {
         @extend %input;
         width: 50px;
         height: 20px;
+
+        &::placeholder {
+            color: $white;
+            font-family: welcome-text;
+            font-size: 15px;
+            opacity: 80%;
+            letter-spacing: 1px;
+        }
     }
 
     #course-grade {
@@ -88,6 +104,7 @@ img {
         top: 30px;
         display: flex;
         flex-direction: column;
+        font-family: welcome-text;
         
         width: 100%;
         height: auto;
@@ -99,11 +116,12 @@ img {
 
 
         #grade{
-            text-align: center;
             width: 100%;
             color: white;
-            padding: 5px;
+            padding: 5px 10px;
             font-size: 15px;
+            font-family: welcome-text;
+
         }
 
         #grade:hover {
