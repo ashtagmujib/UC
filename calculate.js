@@ -25,6 +25,10 @@ inputTab.addEventListener('submit', e => {
     } 
     else {
 
+        let container =  document.querySelector('.container');
+        container.style.overflow = 'hidden';
+        container.style.height = '100vh';
+
         blur.style.display = 'block';
         let  msg = document.createElement('div');
         msg.className = 'error-msg';
@@ -40,6 +44,8 @@ inputTab.addEventListener('submit', e => {
         document.querySelector('body').appendChild(msg)
 
         removeMsg.addEventListener('click', () => {
+            container.style.overflow = 'auto';
+            container.style.height = 'auto';
             blur.style.display = 'none';
             msg.style.display = 'none';
         })
@@ -289,16 +295,24 @@ const
 
 
 calculate.addEventListener('click', () => {
+
     calculateGpa()
-    
-    document.querySelector('.container').style.overflow = 'hidden';
+
+    let container =  document.querySelector('.container');
+    container.style.overflow = 'hidden';
+    container.style.height = '100vh';
+ 
     blur.style.display = 'block';
     resultDisplay.style.display = 'flex';
-
+ 
     closeBtn.addEventListener('click', () => {
+        container.style.overflow = 'auto';
+        container.style.height = 'auto';
         blur.style.display = 'none';
         resultDisplay.style.display = 'none';
     })
+
+    
 })
 
 
