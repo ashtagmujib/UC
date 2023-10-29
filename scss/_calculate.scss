@@ -195,9 +195,13 @@ img {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background-color: red;
+
+            color: red;
+            font-family: welcome-text;
+            font-weight: 500;
+            font-size: 25px;
             position: absolute;
-            top: 5px;
+            top: 0px;
             right: -35px;
         }
 
@@ -207,6 +211,15 @@ img {
         }
     }
 
+
+    
+    .msg {
+        text-align: center;
+        color: $blue;
+        font-family: welcome-text;
+        letter-spacing: 2px;
+    }
+    
 
     button {
         width: 100%;
@@ -284,39 +297,75 @@ img {
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: red;
+        text-align: center;
+
+        font-family: welcome-text;
+        font-weight: 500;
+        font-size: 25px;
+        color: red;
         position: absolute;
         top: -30px;
         right: 0;
     }
 
-    #unit-total{
+    p {
+        font-family: welcome-text;
+    }
+
+    #course-Total {
+        display: none;
+    }
+
+    .unit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
         font-size: 15px;
-        color: red;
+        text-transform: capitalize;
+        color: $blue;
+
+        #unit-Total {
+            margin-left: 5px;
+        }
     }
 
-    #course-total{
-        font-size: 25px;
-        color: red;
+    .grade {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: welcome-text;
+        color: $blue;
+
+        h1 {
+            margin-bottom: 15px;
+        }
+
+        #gpa {
+            color: $blue;
+            font-size: 25px;
+        }
     }
 
-    #unit-total{
-        font-size: 30px;
-        color: red;
-    }
 }
+
+
 
 
 
 .error-msg {
     width: 80%;
-    height: 100px;
-    padding: 20px;
+    height: 80px;
+    padding: 25px 20px;
     border-radius: 10px;
     background-color: $white;
     z-index: 3000;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 10%;
 
     font-size: 17px;
@@ -332,10 +381,10 @@ img {
     .close-alert {
         width: 50%;
         height: 25px;
-        padding-top: 2px;
+        padding: 2px 0 ;
         background-color: $blue;
         border-radius: 5px;
-        margin-top: 30px;
+        margin-top: 20px;
         color: $white;
         text-align: center;
         letter-spacing: 5px;

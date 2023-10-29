@@ -11,8 +11,9 @@ const inputTab = document.querySelector('.input'),
    calculate = document.querySelector('#calculate')
 ;  
 
-let isValid = false;
-
+let isValid = false,
+    courseSTore = []
+;
 
 
 
@@ -28,6 +29,7 @@ inputTab.addEventListener('submit', e => {
         let container =  document.querySelector('.container');
         container.style.overflow = 'hidden';
         container.style.height = '100vh';
+        document.querySelector('body').style.height = '100vh';
 
         blur.style.display = 'block';
         let  msg = document.createElement('div');
@@ -46,6 +48,7 @@ inputTab.addEventListener('submit', e => {
         removeMsg.addEventListener('click', () => {
             container.style.overflow = 'auto';
             container.style.height = 'auto';
+            document.querySelector('body').style.height = 'auto';
             blur.style.display = 'none';
             msg.style.display = 'none';
         })
@@ -126,7 +129,19 @@ const createOutput = () => {
     courseName.value = '';
     courseUnit.value = '';
     gradeValue.innerText = '';
+
+    // add course to the store for storage
+    courseSTore.push(courseDts);
+
+    //localStorage.setItem('courseDts', JSON.stringify(courseSTore))
+    // console.log(courseSTore)
+    // console.log(localStorage)
+
 }
+
+
+// let parsedTask = JSON.parse(localStorage.getItem('courseDts'));
+
 
 
 
@@ -179,7 +194,6 @@ const calculatetotalUnit = () => {
     }
 
 
-    // to delete later
 
     // display total unit
     const totalUnit = document.querySelector('#unit-Total')
@@ -258,8 +272,6 @@ const gradeXunit = () => {
         csTotal += scorePerCourse[i];
     }
 
-
-    // to delete soon
     courseTotal.innerText = csTotal;
     // console.log(scorePerCourse)
 
@@ -296,25 +308,31 @@ const
 
 calculate.addEventListener('click', () => {
 
-    calculateGpa()
+    if(document.querySelector('.course-dts') != null) {
 
-    let container =  document.querySelector('.container');
-    container.style.overflow = 'hidden';
-    container.style.height = '100vh';
- 
-    blur.style.display = 'block';
-    resultDisplay.style.display = 'flex';
- 
-    closeBtn.addEventListener('click', () => {
-        container.style.overflow = 'auto';
-        container.style.height = 'auto';
-        blur.style.display = 'none';
-        resultDisplay.style.display = 'none';
-    })
+        calculateGpa()
+    
+        let container =  document.querySelector('.container');
+        container.style.overflow = 'hidden';
+        container.style.height = '100vh';
+        document.querySelector('body').style.height = '100vh';
+     
+        blur.style.display = 'block';
+        resultDisplay.style.display = 'flex';
+     
+        closeBtn.addEventListener('click', () => {
+            container.style.overflow = 'auto';
+            container.style.height = 'auto';
+            document.querySelector('body').style.height = 'auto';
+            blur.style.display = 'none';
+            resultDisplay.style.display = 'none';
+        })
+    } else {
+        alert('please enter course details')
+    }
 
     
 })
-
 
 
 
@@ -324,18 +342,29 @@ outputControl.addEventListener('click', e => {
         e.target.classList.toggle('delete');
 
         let removeCourse = document.createElement('div');
+        removeCourse.innerText = 'X'
         removeCourse.classList = 'remove-course';
-
         e.target.appendChild(removeCourse);
+
 
         removeCourse.addEventListener('click', e => {
             let target = e.target.parentElement
             target.classList.add('deleted');
 
+            let msg = document.createElement('p');
+            msg.innerText = 'course deleted succefully';
+            msg.className = 'msg';
+    
+            output.insertBefore(msg,calculate)
+
             setTimeout(() => {
-                outputControl.removeChild(target)
+                outputControl.removeChild(target);
             }, 600);
 
+            setTimeout(() => output.removeChild(msg), 610);
+
         })
+
     }
 })
+
