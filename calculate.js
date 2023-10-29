@@ -126,20 +126,89 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
-    courseName.value = '';
-    courseUnit.value = '';
-    gradeValue.innerText = '';
+    // courseName.value = '';
+    // courseUnit.value = '';
+    // gradeValue.innerText = '';
 
     // add course to the store for storage
-    courseSTore.push(courseDts);
 
-    //localStorage.setItem('courseDts', JSON.stringify(courseSTore))
+    let course = {
+        courseOutput: courseOutput.innerText,
+        unitOutput: unitOutput.innerText,
+        gradeOutput: gradeOutput.innerText 
+    }
+    
+
+    courseSTore.push(course);
+
+    localStorage.setItem('courseDts', JSON.stringify(courseSTore))
     console.log(courseSTore)
     console.log(localStorage)
 
 }
 
-// let parsedTask = JSON.parse(localStorage.getItem('courseDts'));
+
+
+
+
+
+
+
+
+
+let parsedCourse = JSON.parse(localStorage.getItem('courseDts'));
+// localStorage.removeItem('courseDts')
+
+if (parsedCourse) {
+
+    parsedCourse.forEach(course => {
+
+        courseSTore.push(course);
+
+        // create elements
+        let courseDts = document.createElement('div');
+        let courseOutput = document.createElement('p');
+        let unitOutput = document.createElement('p');
+        let gradeOutput = document.createElement('p');
+            
+
+        // add classname to elements
+        courseDts.className = 'course-dts'
+        courseOutput.className = 'course-output';
+        unitOutput.className = 'unit-output';
+        gradeOutput.className = 'grade-output';
+
+
+
+        // get text value from input and add to output
+        courseOutput.innerText = courseOutput.value;
+        unitOutput.innerText = unitOutput.value;
+        gradeOutput.innerText = gradeOutput.value;
+
+
+
+        // append to parent
+        courseDts.appendChild(courseOutput);
+        courseDts.appendChild(unitOutput);
+        courseDts.appendChild(gradeOutput);
+
+        outputControl.appendChild(courseDts);
+
+
+        console.log(courseDts)
+
+    })
+    
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -361,22 +430,25 @@ outputControl.addEventListener('click', e => {
 
             setTimeout(() => output.removeChild(msg), 610);
 
-            resetlocalstorage()
+
+            // reset local storage
+            let notDeleted = [];
+
+            courseSTore.filter(course => {
+
+                if(course.classList.contains('deleted')) {
+                    return false;
+                } else {
+                    notDeleted.push(course);
+                }
+            });
+
+            console.log(notDeleted);
+            localStorage.setItem('courseDts', JSON.stringify(notDeleted));
+            console.log(localStorage);
 
         })
 
     }
 })
 
-
-
-// const resetlocalstorage = () => {
-
-//    let removed =  courseSTore.filter(course => {
-//         course.classList != 'deleted';
-//     });
-
-//     console.log(courseSTore)
-//     console.log(removed)
-
-// }
