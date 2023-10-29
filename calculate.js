@@ -157,7 +157,6 @@ const createOutput = () => {
 
 let parsedCourse = JSON.parse(localStorage.getItem('courseDts'));
 // localStorage.removeItem('courseDts')
-courseSTore.push(course);
 
 if (parsedCourse) {
     parsedCourse.forEach(course => {
