@@ -162,8 +162,6 @@ if (parsedCourse) {
 
     parsedCourse.forEach(course => {
 
-        courseSTore.push(course);
-
         // create elements
         let courseDts = document.createElement('div');
         let courseOutput = document.createElement('p');
