@@ -133,9 +133,9 @@ const createOutput = () => {
     // add course to the store for storage
 
     let course = {
-        courseOutput: courseOutput.innerText,
-        unitOutput: unitOutput.innerText,
-        gradeOutput: gradeOutput.innerText 
+        course: courseOutput.innerText,
+        unit: unitOutput.innerText,
+        grade: gradeOutput.innerText 
     }
     
 
@@ -181,9 +181,9 @@ if (parsedCourse) {
 
 
         // get text value from input and add to output
-        courseOutput.innerText = courseOutput.value;
-        unitOutput.innerText = unitOutput.value;
-        gradeOutput.innerText = gradeOutput.value;
+        courseOutput.innerText = course.course;
+        unitOutput.innerText = course.unit;
+        gradeOutput.innerText = course.grade;
 
 
 
