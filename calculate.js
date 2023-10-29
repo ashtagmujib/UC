@@ -15,7 +15,6 @@ let isValid = false,
     courseSTore = []
 ;
 
-localStorage.removeItem('courseDts')
 
 inputTab.addEventListener('submit', e => {
     e.preventDefault();
