@@ -134,11 +134,10 @@ const createOutput = () => {
     courseSTore.push(courseDts);
 
     //localStorage.setItem('courseDts', JSON.stringify(courseSTore))
-    // console.log(courseSTore)
-    // console.log(localStorage)
+    console.log(courseSTore)
+    console.log(localStorage)
 
 }
-
 
 // let parsedTask = JSON.parse(localStorage.getItem('courseDts'));
 
@@ -342,7 +341,6 @@ outputControl.addEventListener('click', e => {
         e.target.classList.toggle('delete');
 
         let removeCourse = document.createElement('div');
-        removeCourse.innerText = 'X'
         removeCourse.classList = 'remove-course';
         e.target.appendChild(removeCourse);
 
@@ -363,8 +361,22 @@ outputControl.addEventListener('click', e => {
 
             setTimeout(() => output.removeChild(msg), 610);
 
+            resetlocalstorage()
+
         })
 
     }
 })
 
+
+
+// const resetlocalstorage = () => {
+
+//    let removed =  courseSTore.filter(course => {
+//         course.classList != 'deleted';
+//     });
+
+//     console.log(courseSTore)
+//     console.log(removed)
+
+// }

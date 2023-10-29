@@ -114,7 +114,7 @@ img {
         border-radius: 5px;
 
         background-color: blue;
-        box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.4);
+        box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.3);
         display: none;
 
 
@@ -196,12 +196,9 @@ img {
             height: 20px;
             border-radius: 50%;
 
-            color: red;
-            font-family: welcome-text;
-            font-weight: 500;
-            font-size: 25px;
+            background-image: radial-gradient(white, red);
             position: absolute;
-            top: 0px;
+            top: 4px;
             right: -35px;
         }
 
@@ -299,10 +296,7 @@ img {
         border-radius: 50%;
         text-align: center;
 
-        font-family: welcome-text;
-        font-weight: 500;
-        font-size: 25px;
-        color: red;
+        background-image: radial-gradient(white, red);
         position: absolute;
         top: -30px;
         right: 0;
