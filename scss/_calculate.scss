@@ -25,36 +25,20 @@ img {
 
     #course-name {
         @extend %input;
-        width: 200px;
-        height: 20px;
-
-        &::placeholder {
-            color: $white;
-            font-family: welcome-text;
-            font-size: 13px;
-            opacity: 80%;
-            letter-spacing: 1px;
-        }
+        width: 600px;
+        height: 30px;
     }
     
     #course-unit {
         @extend %input;
-        width: 50px;
-        height: 20px;
-
-        &::placeholder {
-            color: $white;
-            font-family: welcome-text;
-            font-size: 13px;
-            opacity: 80%;
-            letter-spacing: 1px;
-        }
+        width: 80px;
+        height: 30px;
     }
 
     #course-grade {
         @extend %input;
-        width: 50px;
-        height: 20px;
+        width: 80px;
+        height: 30px;
         position: relative;
         z-index: 1000;
 
@@ -65,11 +49,11 @@ img {
         &::before {
             content: '';
             position: absolute;
-            top: 3px;
-            right: 10px;
+            top: 7px;
+            right: 15px;
 
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border: 1px solid white;
             border-right: 0;
             border-top: 0;
@@ -95,7 +79,7 @@ img {
 
 
     #grade-value {
-        font-size: 13px;
+        font-size: 15px;
         color: $white;
         text-align: center;
         margin-top: 2px;
@@ -104,7 +88,7 @@ img {
 
     .grade-options {
         position: absolute;
-        top: 30px;
+        top: 40px;
         display: flex;
         flex-direction: column;
         font-family: welcome-text;
@@ -121,8 +105,8 @@ img {
         #grade{
             width: 100%;
             color: white;
-            padding: 5px 10px;
-            font-size: 18px;
+            padding: 8px 30px;
+            font-size: 15px;
             font-family: welcome-text;
 
         }
@@ -138,8 +122,8 @@ img {
 
     button {
         @extend %input;
-        width: 120px;
-        height: 20px; 
+        width: 200px;
+        height: 30px; 
         color: $white; 
         font-family: welcome-text;
         letter-spacing: 1px;

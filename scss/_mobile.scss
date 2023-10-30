@@ -57,18 +57,167 @@
     .input {
         flex-wrap: wrap;
 
+        #course-name {
+            width: 200px;
+            height: 20px;
+        }  
+
+        #course-unit {
+            width: 50px;
+            height: 20px;
+        }
+
+        #course-grade {
+            width: 50px;
+            height: 20px;
+    
+            &::before {
+                top: 3px;
+                right: 10px;
+                width: 8px;
+                height: 8px;
+            }
+    
+
+            #grade-value {
+                font-size: 13px;
+            }
+
+            .grade-options {
+                top: 30px;
+        
+                #grade{
+                    padding: 5px 10px;
+                    font-size: 15px;
+                }
+            }
+            
+    
+    
+        }
+        
+        
         button {
             margin-top: 20px;
+            width: 120px;
+            height: 20px; 
         }
+
+
     }
-
-
-
-
-
-
-
 
 
 }
 
+
+
+
+@media (max-width:760px) {
+    body, .container {
+        width: 700px;
+        overflow-x: hidden;
+        padding: 0;
+    }
+
+
+    header {
+        width: 700px;
+        height: auto;
+        padding: 50px;
+    }
+
+
+    main {
+        width: 700px;
+        padding: 50px;
+        margin-top: 0;
+
+        .image {
+            height: 500px;
+
+
+            #hello-svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+
+        p {
+            font-size: 18px;
+            margin: 0;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 32px;
+                left: 100px;
+                width: 10px;
+                height: 10px;
+                background-color: $blue;
+                opacity: 30%;
+                border-radius: 30px;
+            }
+        }
+    }
+    
+
+
+
+
+    
+    .input {
+        flex-wrap: wrap;
+
+        #course-name {
+            width: 400px;
+            height: 30px;
+        }  
+
+        #course-unit {
+            width: 70px;
+            height: 30px;
+        }
+
+        #course-grade {
+            width: 70px;
+            height: 30px;
+    
+            &::before {
+                top: 3px;
+                right: 10px;
+                width: 8px;
+                height: 8px;
+            }
+    
+
+            #grade-value {
+                font-size: 13px;
+            }
+
+            .grade-options {
+                top: 30px;
+        
+                #grade{
+                    padding: 5px 10px;
+                    font-size: 15px;
+                }
+            }
+            
+    
+    
+        }
+        
+        
+        button {
+            margin-top: 20px;
+            width: 150px;
+            height: 30px; 
+        }
+
+
+    }
+
+
+}
