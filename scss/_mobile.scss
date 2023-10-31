@@ -144,6 +144,11 @@
                 right: -35px;
             }
 
+            &.deleted {
+                transform: translateX(-150%);
+                transition: all 0.3s ease-in-out;
+            }
+
         }
 
 

@@ -54,6 +54,8 @@
         width: 80%;
         height: auto;
 
+        padding: 20px;
+
         #course-name {
             width: 400px;
             height: 30px;
@@ -131,6 +133,11 @@
             .remove-course {
                 top: 6px;
                 right: -35px;
+            }
+
+            &.deleted {
+                transform: translateX(-150%);
+                transition: all 0.3s ease-in-out;
             }
 
         }
