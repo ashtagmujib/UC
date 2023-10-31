@@ -1,19 +1,28 @@
 // input and out put constants
-const inputTab = document.querySelector('.input'),
-   courseName = document.querySelector('#course-name'),
-   courseUnit = document.querySelector('#course-unit'),
-   courseGrade = document.querySelector('#course-grade'),
-   gradeValue = document.querySelector('#grade-value'),
-   addCourse = document.querySelector('#add-course'),
+const 
 
-   output = document.querySelector('.output'),
-   outputControl = document.querySelector('.output-control'),
-   calculate = document.querySelector('#calculate')
+    body = document.querySelector('body'),
+    container =  document.querySelector('.container'),
+
+    inputTab = document.querySelector('.input'),
+    courseName = document.querySelector('#course-name'),
+    courseUnit = document.querySelector('#course-unit'),
+    courseGrade = document.querySelector('#course-grade'),
+    gradeValue = document.querySelector('#grade-value'),
+    addCourse = document.querySelector('#add-course'),
+
+    output = document.querySelector('.output'),
+    outputControl = document.querySelector('.output-control'),
+    calculate = document.querySelector('#calculate')
 ;  
 
 let isValid = false,
-    courseSTore = []
+    courseSTore = [],
+    parsedCourseStore = []
 ;
+
+
+
 
 
 inputTab.addEventListener('submit', e => {
@@ -23,34 +32,37 @@ inputTab.addEventListener('submit', e => {
     if(isValid === true) {
        createOutput();
     } 
+
     else {
 
-        let container =  document.querySelector('.container');
-        container.style.overflow = 'hidden';
-        container.style.height = '100vh';
-        document.querySelector('body').style.height = '100vh';
+        alert('please enter all fields')
+        // body.style.height = '100vh';
+        // body.style.overflow = 'hidden';
 
-        blur.style.display = 'block';
-        let  msg = document.createElement('div');
-        msg.className = 'error-msg';
+        // container.style.overflow = 'hidden';
+        // container.style.height = '100vh';
 
-        let removeMsg = document.createElement('p');
-        removeMsg.innerText = 'close';
-        removeMsg.className = 'close-alert'
-        let msgValue = document.createTextNode('please enter all fields');
+        // blur.style.display = 'block';
+        // let  msg = document.createElement('div');
+        // msg.className = 'error-msg';
 
-        msg.appendChild(msgValue)
-        msg.appendChild(removeMsg)
+        // let removeMsg = document.createElement('p');
+        // removeMsg.innerText = 'close';
+        // removeMsg.className = 'close-alert'
+        // let msgValue = document.createTextNode('please enter all fields');
 
-        document.querySelector('body').appendChild(msg)
+        // msg.appendChild(msgValue)
+        // msg.appendChild(removeMsg)
 
-        removeMsg.addEventListener('click', () => {
-            container.style.overflow = 'auto';
-            container.style.height = 'auto';
-            document.querySelector('body').style.height = 'auto';
-            blur.style.display = 'none';
-            msg.style.display = 'none';
-        })
+        // document.querySelector('body').appendChild(msg)
+
+        // removeMsg.addEventListener('click', () => {
+        //     container.style.overflow = 'auto';
+        //     container.style.height = 'auto';
+        //     document.querySelector('body').style.height = 'auto';
+        //     blur.style.display = 'none';
+        //     msg.style.display = 'none';
+        // })
     }
     
 
@@ -84,9 +96,7 @@ const validateForm = () => {
         isValid = false;
     } else {
         isValid = true;
-    }
-
-    
+    } 
 }
 
 
@@ -141,8 +151,6 @@ const createOutput = () => {
     courseSTore.push(course);
 
     localStorage.setItem('courseDts', JSON.stringify(courseSTore))
-    console.log(courseSTore)
-    console.log(localStorage)
 
 }
 
@@ -152,11 +160,7 @@ const createOutput = () => {
 
 
 
-
-
-
 let parsedCourse = JSON.parse(localStorage.getItem('courseDts'));
-// localStorage.removeItem('courseDts')
 
 if (parsedCourse) {
     parsedCourse.forEach(course => {
@@ -190,21 +194,9 @@ if (parsedCourse) {
 
         outputControl.appendChild(courseDts);
 
-
-        console.log(courseDts)
-
     })
-    
+
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -251,22 +243,15 @@ const calculatetotalUnit = () => {
         return +value;
     }
 
-
     // sum up the numbers in the unit numbers
     for(let i = 0; i < unitNum.length; i++) {
         unitSum += unitNum[i] 
     }
 
-
-
     // display total unit
     const totalUnit = document.querySelector('#unit-Total')
     totalUnit.innerText = unitSum;
 
-
-    // console.log(unitsTotal)
-    // console.log(unitNum)
-    // console.log(unitSum)
 }
 
 
@@ -324,10 +309,6 @@ const gradeXunit = () => {
         }
 
         scorePerCourse.push(gradeOutputTonumber * unitOutput.innerText);
-
-        // console.log(gradeOutputTonumber)
-        // console.log(gradeOutput.innerText)
-        // console.log(unitOutput.innerText)
     })
 
 
@@ -337,7 +318,6 @@ const gradeXunit = () => {
     }
 
     courseTotal.innerText = csTotal;
-    // console.log(scorePerCourse)
 
 }
 
@@ -354,15 +334,12 @@ const gpa = () => {
 
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
-
-    // console.log(gpa)
 }
 
 
 
 
 // display grade
-
 const 
     blur = document.querySelector('.blur'),
     resultDisplay = document.querySelector('.result-display'),
@@ -375,11 +352,11 @@ calculate.addEventListener('click', () => {
     if(document.querySelector('.course-dts') != null) {
 
         calculateGpa()
-    
-        let container =  document.querySelector('.container');
+
+        body.style.height = '100vh';
+        body.style.overflow = 'hidden';
         container.style.overflow = 'hidden';
         container.style.height = '100vh';
-        document.querySelector('body').style.height = '100vh';
      
         blur.style.display = 'block';
         resultDisplay.style.display = 'flex';
@@ -427,24 +404,33 @@ outputControl.addEventListener('click', e => {
             setTimeout(() => output.removeChild(msg), 610);
 
 
+
             // reset local storage
             let notDeleted = [];
 
-            courseSTore.filter(course => {
+            document.querySelectorAll('.course-dts').forEach(crs => {
+                let courseOutput = document.querySelector('.course-output');
+                let unitOutput = document.querySelector('.unit-output');
+                let gradeOutput = document.querySelector('.grade-output');
 
-                if(course.classList.contains('deleted')) {
+
+                if(crs.classList.contains('deleted')) {
                     return false;
                 } else {
+
+                    let course = {
+                        course: courseOutput.innerText,
+                        unit: unitOutput.innerText,
+                        grade: gradeOutput.innerText 
+                    }
+
                     notDeleted.push(course);
                 }
-            });
+            })
 
-            console.log(notDeleted);
             localStorage.setItem('courseDts', JSON.stringify(notDeleted));
-            console.log(localStorage);
 
         })
 
     }
 })
-
