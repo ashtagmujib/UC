@@ -57,9 +57,11 @@ inputTab.addEventListener('submit', e => {
         // document.querySelector('body').appendChild(msg)
 
         // removeMsg.addEventListener('click', () => {
+        //      body.style.height = 'auto';
+        //      body.style.overflow = 'auto';
         //     container.style.overflow = 'auto';
-        //     container.style.height = 'auto';
-        //     document.querySelector('body').style.height = 'auto';
+        //     container.style.height = 'auto';]
+
         //     blur.style.display = 'none';
         //     msg.style.display = 'none';
         // })
@@ -135,9 +137,9 @@ const createOutput = () => {
 
     outputControl.appendChild(courseDts);
 
-    // courseName.value = '';
-    // courseUnit.value = '';
-    // gradeValue.innerText = '';
+    courseName.value = '';
+    courseUnit.value = '';
+    gradeValue.innerText = '';
 
     // add course to the store for storage
 
@@ -364,7 +366,9 @@ calculate.addEventListener('click', () => {
         closeBtn.addEventListener('click', () => {
             container.style.overflow = 'auto';
             container.style.height = 'auto';
-            document.querySelector('body').style.height = 'auto';
+            body.style.height = 'auto';
+            body.style.overflow = 'auto';
+
             blur.style.display = 'none';
             resultDisplay.style.display = 'none';
         })
@@ -408,22 +412,25 @@ outputControl.addEventListener('click', e => {
             // reset local storage
             let notDeleted = [];
 
-            document.querySelectorAll('.course-dts').forEach(crs => {
-                let courseOutput = document.querySelector('.course-output');
-                let unitOutput = document.querySelector('.unit-output');
-                let gradeOutput = document.querySelector('.grade-output');
 
+            document.querySelectorAll('.course-dts').forEach(crs => {
+
+                let courseOutput = crs.querySelector('.course-output').innerText;
+                let unitOutput = crs.querySelector('.unit-output').innerText;
+                let gradeOutput = crs.querySelector('.grade-output').innerText;
+    
+                
+                let course = {
+                    course: courseOutput,
+                    unit: unitOutput,
+                    grade: gradeOutput
+                }
 
                 if(crs.classList.contains('deleted')) {
                     return false;
-                } else {
-
-                    let course = {
-                        course: courseOutput.innerText,
-                        unit: unitOutput.innerText,
-                        grade: gradeOutput.innerText 
-                    }
-
+                } 
+                
+                else {
                     notDeleted.push(course);
                 }
             })
