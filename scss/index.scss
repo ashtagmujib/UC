@@ -1,7 +1,4 @@
 @import 'general';
-@import 'homepage';
-@import 'calculate';
-
 
 * {
     box-sizing: border-box;
@@ -71,4 +68,109 @@ header {
 }
 
 
+main {
+    width: 1440px;
+    height: auto;
+    margin-top: 30px;
+    padding: 20px 150px 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .image {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 60px;
+        border-radius: 5px;
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+
+        #hello-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        #border {
+            border:3px solid $blue;
+            border-radius: 5px;
+            position: absolute;
+
+
+            &:first-of-type {
+                top: 0;
+                left: 0;
+                width: 100px;
+                height: 50px;
+                border-right: none;
+                border-bottom: none;
+            }
+
+
+            &:last-of-type {
+                bottom: 0;
+                right: 0;
+                width: 70px;
+                height: 110px;
+
+                border-top: none;
+                border-left: none;
+            }
+        }
+
+    }
+
+
+    p {
+        text-align: right;
+        font-family: welcome-text;
+        letter-spacing: 1px;
+        color: $black;
+        line-height: 25px;
+        font-size: 35px;
+        margin-top: 100px;
+
+        position: relative;
+
+    }
+
+    a {
+        width: 100%;
+        height: 50px;
+        border-radius: 8px;
+        margin-top: 70px;
+        text-decoration: none;
+        position: relative;
+
+        button {
+            background-color: $blue;
+            border-radius: 8px;
+            width: 100%;
+            height: 100%;
+            color: $white;
+            outline: none;
+            border: 0;
+    
+            box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+            font-size: 20px;
+            font-family: welcome-text;
+            letter-spacing: 2px;
+            position: relative;
+
+        }
+
+    }
+}
+
+@import 'calculate';
 @import 'mobile';
+@import 'tablet';
