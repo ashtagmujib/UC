@@ -159,13 +159,13 @@ const createOutput = () => {
 
 
 
-
-
-
 let parsedCourse = JSON.parse(localStorage.getItem('courseDts'));
 
 if (parsedCourse) {
+
     parsedCourse.forEach(course => {
+        courseSTore.push(course);
+
 
         // create elements
         let courseDts = document.createElement('div');
