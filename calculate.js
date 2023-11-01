@@ -336,6 +336,15 @@ const gpa = () => {
 
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
+
+    if(GPA.innerText.length < 2) {
+        GPA.innerText = `${gpa}.0`;
+    } 
+
+    else if(GPA.innerText.length > 3) {
+       let x =  gpa.toString()
+        GPA.innerText = x.slice(0,4)
+    }
 }
 
 
@@ -383,6 +392,7 @@ calculate.addEventListener('click', () => {
 
 // delete course
 outputControl.addEventListener('click', e => {
+
     if(e.target.classList.contains('course-dts')) {
         e.target.classList.toggle('delete');
 

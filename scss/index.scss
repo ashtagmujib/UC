@@ -68,6 +68,37 @@ header {
 }
 
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    #info {
+        width: 25px;
+        height: 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+
+        border-radius: 50%;
+        margin-top: 15px;
+        margin-right: 15px;
+
+        box-shadow: 1px 1px 10px rgba(61, 61, 250, 0.2);
+        padding: 3px;
+
+        & > * {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $black;
+        }
+    }
+}
+
+
 main {
     width: 1440px;
     height: auto;
