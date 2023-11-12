@@ -18,10 +18,15 @@ const
 
 let isValid = false,
     courseSTore = [],
-    parsedCourseStore = []
+    parsedCourseStore = [],
+    isDragging = false,
+    startPos = 0,
+    currentTranslate = 0,
+    prevTranslate = 0;
 ;
 
 
+// localStorage.removeItem('courseDts')
 
 
 
@@ -60,7 +65,7 @@ inputTab.addEventListener('submit', e => {
         //      body.style.height = 'auto';
         //      body.style.overflow = 'auto';
         //     container.style.overflow = 'auto';
-        //     container.style.height = 'auto';]
+        //     container.style.height = 'auto';
 
         //     blur.style.display = 'none';
         //     msg.style.display = 'none';
@@ -390,11 +395,33 @@ calculate.addEventListener('click', () => {
 
 
 
+
+
 // delete course
+
+
+// touch events on the course dts
+let courseDts = document.querySelectorAll('.course-dts')
+
+if(courseDts != 0) { 
+     
+    courseDts.forEach(course => {
+        course.addEventListener('touchstart', touchStart);
+        course.addEventListener('touchmove', touchMove);
+        course.addEventListener('touchend', touchEnd);
+    })
+}
+
+
+
+
 outputControl.addEventListener('click', e => {
 
     if(e.target.classList.contains('course-dts')) {
         e.target.classList.toggle('delete');
+
+
+
 
         let removeCourse = document.createElement('div');
         removeCourse.classList = 'remove-course';
@@ -451,3 +478,44 @@ outputControl.addEventListener('click', e => {
 
     }
 })
+
+
+
+
+
+function touchStart(e) {
+
+    isDragging = true;
+    startPos = e.touches[0].clientX;
+}
+
+function touchMove(e) {
+
+    if(isDragging) {
+        let currentPosition = e.touches[0].clientX;
+        currentTranslate = prevTranslate + currentPosition - startPos;
+
+        if(currentTranslate < 0 ) {
+            e.target.classList.add('delete')
+        }
+
+        if(currentTranslate > 0 ) {
+            e.target.classList.remove('delete')
+        }
+    }
+
+}
+
+function touchEnd(e) {
+    isDragging = false;
+
+    if(currentTranslate < 0 ) {
+        e.target.classList.add('delete');
+    }
+
+    if(currentTranslate > 0 ) {
+        e.target.classList.remove('delete');
+    }
+
+
+}
