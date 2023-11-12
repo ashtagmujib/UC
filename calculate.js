@@ -401,16 +401,16 @@ calculate.addEventListener('click', () => {
 
 
 // touch events on the course dts
-let courseDts = document.querySelectorAll('.course-dts')
+// let courseDts = document.querySelectorAll('.course-dts')
 
-if(courseDts != 0) { 
+// if(courseDts != 0) { 
      
-    courseDts.forEach(course => {
-        course.addEventListener('touchstart', touchStart);
-        course.addEventListener('touchmove', touchMove);
-        course.addEventListener('touchend', touchEnd);
-    })
-}
+//     courseDts.forEach(course => {
+//         course.addEventListener('touchstart', touchStart);
+//         course.addEventListener('touchmove', touchMove);
+//         course.addEventListener('touchend', touchEnd);
+//     })
+// }
 
 
 
@@ -483,39 +483,42 @@ outputControl.addEventListener('click', e => {
 
 
 
-function touchStart(e) {
+// function touchStart(e) {
 
-    isDragging = true;
-    startPos = e.touches[0].clientX;
-}
+//     isDragging = true;
+//     startPos = e.touches[0].clientX;
+//     body.style.overflow = 'hidden';
+// }
 
-function touchMove(e) {
+// function touchMove(e) {
 
-    if(isDragging) {
-        let currentPosition = e.touches[0].clientX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
+//     if(isDragging) {
+//         let currentPosition = e.touches[0].clientX;
+//         currentTranslate = prevTranslate + currentPosition - startPos;
 
-        if(currentTranslate < 0 ) {
-            e.target.classList.add('delete')
-        }
+//         console.log(currentTranslate)
+//         if(currentTranslate < -30 ) {
+//             e.target.classList.add('delete')
+//         }
 
-        if(currentTranslate > 0 ) {
-            e.target.classList.remove('delete')
-        }
-    }
+//        else if(currentTranslate > 0 ) {
+//             e.target.classList.remove('delete')
+//         }
+//     }
 
-}
+// }
 
-function touchEnd(e) {
-    isDragging = false;
+// function touchEnd(e) {
+//     isDragging = false;
 
-    if(currentTranslate < 0 ) {
-        e.target.classList.add('delete');
-    }
+//     if(currentTranslate < 0 ) {
+//         e.target.classList.add('delete');
+//     }
 
-    if(currentTranslate > 0 ) {
-        e.target.classList.remove('delete');
-    }
+//     if(currentTranslate > 0 ) {
+//         e.target.classList.remove('delete');
+//     }
 
+//     body.style.overflow = 'auto';
 
-}
+// }
