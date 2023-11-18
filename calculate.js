@@ -368,46 +368,66 @@ const
 
 
 calculate.addEventListener('click', () => {
+    if(document.querySelector('.course-dts') != null) {
+        body.style.height = '100vh';
+        body.style.overflow = 'hidden';
+        container.style.overflow = 'hidden';
+        container.style.height = '100vh';
+     
+        blur.style.display = 'block';
     
-    body.style.height = '100vh';
-    body.style.overflow = 'hidden';
-    container.style.overflow = 'hidden';
-    container.style.height = '100vh';
- 
-    blur.style.display = 'block';
-
+        
+        resultDisplay.style.display = 'none';
+        loader.style.display = 'block';
     
-    resultDisplay.style.display = 'none';
-    loader.style.display = 'block';
+        setTimeout(() => {
+            // showGrade()
 
-    setTimeout(() => {
-        showGrade()
-    }, 3000)
+            loader.style.display = 'none';
+            calculateGpa()
+            resultDisplay.style.display = 'flex';
+         
+            closeBtn.addEventListener('click', () => {
+                container.style.overflow = 'auto';
+                container.style.height = 'auto';
+                body.style.height = 'auto';
+                body.style.overflow = 'auto';
+    
+                blur.style.display = 'none';
+                resultDisplay.style.display = 'none';
+            })
+
+        }, 3000)
+    } 
+    
+    else {
+        alert('please enter course details')
+    }
 
 })
 
 
-const showGrade = () => {
-    loader.style.display = 'none';
+// const showGrade = () => {
+//     loader.style.display = 'none';
 
-    if(document.querySelector('.course-dts') != null) {
+//     if(document.querySelector('.course-dts') != null) {
     
-        calculateGpa()
-        resultDisplay.style.display = 'flex';
+//         calculateGpa()
+//         resultDisplay.style.display = 'flex';
      
-        closeBtn.addEventListener('click', () => {
-            container.style.overflow = 'auto';
-            container.style.height = 'auto';
-            body.style.height = 'auto';
-            body.style.overflow = 'auto';
+//         closeBtn.addEventListener('click', () => {
+//             container.style.overflow = 'auto';
+//             container.style.height = 'auto';
+//             body.style.height = 'auto';
+//             body.style.overflow = 'auto';
 
-            blur.style.display = 'none';
-            resultDisplay.style.display = 'none';
-        })
-    } else {
-        alert('please enter course details')
-    }
-}
+//             blur.style.display = 'none';
+//             resultDisplay.style.display = 'none';
+//         })
+//     } else {
+//         alert('please enter course details')
+//     }
+// }
 
 
 

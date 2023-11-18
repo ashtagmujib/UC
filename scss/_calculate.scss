@@ -271,8 +271,8 @@ img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 1px solid $white;
-    border-right:2px solid blue;
+    border: 1px solid $blue;
+    border-right:2px solid $white;
 
     position: absolute;
     z-index: 20000;
@@ -294,7 +294,7 @@ img {
     }
 
     to {
-        transform: rotate(3turn);
+        transform: rotate(2turn);
         opacity: 1;
     }
 }
