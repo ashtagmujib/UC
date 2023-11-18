@@ -282,19 +282,19 @@ img {
     animation: anim1 3s infinite;
     display: none;
     opacity: 0;
-    transition: 3s ease-in-out;
+    transition: 0.3 ease-in-out;
 }
 
 
 @keyframes anim1 {
     from {
-        transform: rotate(0turn);
+        transform: rotate(0);
         opacity: 0;
         
     }
 
     to {
-        transform: rotate(2turn);
+        transform: rotate(360deg);
         opacity: 1;
     }
 }
