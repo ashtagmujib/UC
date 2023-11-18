@@ -1,5 +1,4 @@
 
-
 img {
     width: 100px;
     height: 40px;
@@ -265,6 +264,39 @@ img {
     display: none;
 
     margin:0;
+}
+
+
+.loader {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 1px solid $white;
+    border-right:2px solid blue;
+
+    position: absolute;
+    z-index: 20000;
+    top: 40%;
+    left: 40%;
+
+    animation: anim1 3s infinite;
+    display: none;
+    opacity: 0;
+    transition: 3s ease-in-out;
+}
+
+
+@keyframes anim1 {
+    from {
+        transform: rotate(0turn);
+        opacity: 0;
+        
+    }
+
+    to {
+        transform: rotate(3turn);
+        opacity: 1;
+    }
 }
 
 

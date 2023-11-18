@@ -210,6 +210,7 @@ if (parsedCourse) {
 
 
 //calculate gpa
+
 const calculateGpa = () => {
 
     //sum up the units value
@@ -222,6 +223,8 @@ const calculateGpa = () => {
     gpa()
 
 }
+
+
 
 
 
@@ -359,22 +362,37 @@ const gpa = () => {
 const 
     blur = document.querySelector('.blur'),
     resultDisplay = document.querySelector('.result-display'),
-    closeBtn = document.querySelector('#close')
+    closeBtn = document.querySelector('#close'),
+    loader = document.querySelector('.loader')
 ;    
 
 
 calculate.addEventListener('click', () => {
+    
+    body.style.height = '100vh';
+    body.style.overflow = 'hidden';
+    container.style.overflow = 'hidden';
+    container.style.height = '100vh';
+ 
+    blur.style.display = 'block';
+
+    
+    resultDisplay.style.display = 'none';
+    loader.style.display = 'block';
+
+    setTimeout(() => {
+        showGrade()
+    }, 3000)
+
+})
+
+
+const showGrade = () => {
+    loader.style.display = 'none';
 
     if(document.querySelector('.course-dts') != null) {
-
+    
         calculateGpa()
-
-        body.style.height = '100vh';
-        body.style.overflow = 'hidden';
-        container.style.overflow = 'hidden';
-        container.style.height = '100vh';
-     
-        blur.style.display = 'block';
         resultDisplay.style.display = 'flex';
      
         closeBtn.addEventListener('click', () => {
@@ -389,11 +407,7 @@ calculate.addEventListener('click', () => {
     } else {
         alert('please enter course details')
     }
-
-    
-})
-
-
+}
 
 
 
