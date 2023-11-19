@@ -271,7 +271,7 @@ img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 1px solid $blue;
+    border: 5px solid $blue;
     border-right:2px solid $white;
 
     position: absolute;
@@ -279,10 +279,11 @@ img {
     top: 40%;
     left: 40%;
 
-    animation: anim1 3s infinite;
+    animation: anim1 2s infinite;
     display: none;
     opacity: 0;
-    transition: 0.3 ease-in-out;
+    transition: 0.1s  all ease-in-out;
+
 }
 
 
@@ -294,7 +295,7 @@ img {
     }
 
     to {
-        transform: rotate(360deg);
+        transform: rotate(2turn);
         opacity: 1;
     }
 }
@@ -420,4 +421,19 @@ img {
 //         text-align: center;
 //         letter-spacing: 5px;
 //     }
+// }
+
+
+
+
+
+
+// .info-tab {
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: red;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 2000;
 // }
