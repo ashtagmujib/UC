@@ -4,7 +4,7 @@
 }
 
 // colors
-$blue :#0000FE;
+$blue :#3C5EE9;
 $orange:#FF5A25;
 $black:#000;
 $white:#fff;
@@ -13,7 +13,7 @@ $white:#fff;
 %input {
     outline: none;  
     border: none;
-    background: blue;
+    background: $blue;
     color: white;
     border-radius: 5px;
     text-indent: 10px;
