@@ -431,6 +431,7 @@ calculate.addEventListener('click', () => {
 
 
 
+
 // delete course
 
 
@@ -556,3 +557,19 @@ outputControl.addEventListener('click', e => {
 //     body.style.overflow = 'auto';
 
 // }
+
+
+
+
+
+const 
+    introLoader = document.querySelector('.intro-loader')
+    // intro = document.querySelector('.il'),
+    // logo = document.querySelector('.logo')
+;
+
+setTimeout(() => {
+    container.removeChild(introLoader);
+
+}, 4500)
+

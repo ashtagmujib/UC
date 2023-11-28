@@ -1,9 +1,75 @@
+.intro-loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: $blue;
 
-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: remove-intro 2s forwards 3s;
+
+
+    transition: all 0.3s ease-out;
+}
+
+.il {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: white;
+
+    animation: intro-animation 2s forwards;
+}
+
+
+
+.logo {
     width: 100px;
-    height: 40px;
-    margin-top: 20px;
-    margin-left: -20px;
+    height: 100px;
+    border-radius: 50%;
+
+    background-color: $blue;
+    color: white;
+    box-shadow: -8px 8px 40px 0 rgba(0, 0, 0, 0.1);
+
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes intro-animation {
+    0% {
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(80%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
+}
+
+
+@keyframes remove-intro {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+
+
+
+.calculator-page {
+    transition: all 0.3s ease-in;
 }
 
 
