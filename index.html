@@ -10,20 +10,106 @@
 <body>
     <div class="container">
 
-        <header>
-            <div id="logo"></div>
-        </header>
+        <div class="blur"></div>
+        <div class="loader"></div>
 
-        <main>
-            <div class="image">
-                <div id="border"></div>
-                <img id="hello-svg" src="./assets/Hello-rafiki.svg" alt="rafiki">
-                <div id="border"></div>
+        <section class="intro-loader">
+            <div class="il">
+                <div class="logo">
+                    <p>Urban campus</p>
+                </div>
             </div>
-            <p id="home-msg"> Hi there, click on the button below to calculate your GPA/CGPA </p>
-            <a href="./calculate.html"><button id="calculate"> calculate gpa </button> </a> 
-        </main>
+        </section>
 
+
+        <section class="calculator-page">
+            
+            <nav>
+                <div class="info">
+                    <div id="top"></div>
+                    <div id="bottom"></div>
+                </div>
+            </nav>
+    
+            <!-- calculator screen -->
+    
+                <form class="input">
+                    <div class="input-control">
+                        <input id="course-name" type="text">
+                    </div>
+                    
+                    <div class="input-control">
+                        <input id="course-unit" type="text" maxlength="2">
+                    </div>
+    
+                    <div class="input-control">
+                        <div id="course-grade" type="text">
+                            <h3 id="grade-value"></h3> 
+                            <div class="grade-options">
+                                <div id="grade">A</div>
+                                <div id="grade">B</div>
+                                <div id="grade">C</div>  
+                                <div id="grade">D</div>
+                                <div id="grade">E</div>
+                                <div id="grade">F</div>
+                            </div>
+                        </div> 
+                    </div>
+    
+                    <button id="add-course"> add course </button>
+                </form>
+    
+                <section class="output">
+    
+                    <div class="output-control">  
+                        
+                    </div>
+                    <button id="calculate"> calculate </button>
+    
+                </section>
+    
+            <!-- calculator screen -->
+    
+    
+            
+            <!-- result display tab -->
+    
+                <section class="result-display">
+                    <span id="close"></span>
+            
+                    <img id="happy-announcement" src="./assets/undraw_happy_announcement_re_tsm0.svg" alt="happy announcement">
+            
+                    <div class="unit">
+                        <p>Total unit = </p>
+                        <p id="unit-Total"></p>
+                    </div>
+            
+                    <p id="course-Total"></p>
+            
+                    <div class="grade"> 
+                        <h1>Your gpa is</h1>
+                        <p id="gpa"></p>
+                    </div>
+                </section>
+    
+            <!-- result display tab -->
+            
+
+        </section>
+        
+
+
+        
+        
+        <!-- info section -->
+    
+            <section class="info-tab">
+                <div id="close-info"></div>
+            </section>
+    
+        <!-- info section -->
+
+    </div>
     </div>
 
     <script src="./main.js"></script>
