@@ -562,17 +562,25 @@ outputControl.addEventListener('click', e => {
 
 
 
-const 
-    introLoader = document.querySelector('.intro-loader')
-    // intro = document.querySelector('.il'),
-    // logo = document.querySelector('.logo')
-;
+const introLoader = document.querySelector('.intro-loader');
+let introShow;
 
 setTimeout(() => {
     container.removeChild(introLoader);
+    // introShow = true;
+    // localStorage.setItem('intro', JSON.stringify(introShow))
+
+
+    localStorage.removeItem('intro')
 
 }, 4500)
 
+
+
+
+window.addEventListener('unload', e=> {
+    alert('tab close')
+})
 
 
 
