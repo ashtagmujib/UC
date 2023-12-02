@@ -1,0 +1,650 @@
+
+.input {
+
+    background-color: red;
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    color: $white;
+
+    .input-control {
+        position: relative;
+        margin-top: 15px;
+    }
+
+    #course-name {
+        @extend %input;
+        width: 600px;
+        height: 35px;
+        font-size: 20px;
+    }
+    
+    #course-unit {
+        @extend %input;
+        width: 80px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    #course-grade {
+        @extend %input;
+        width: 80px;
+        height: 35px;
+        position: relative;
+        z-index: 1000;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            right: 20px;
+
+            width: 10px;
+            height: 10px;
+            border: 1px solid white;
+            border-right: 0;
+            border-top: 0;
+
+            transform: rotate(-45deg);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+
+        
+
+
+        &.active::before {
+            top: 7px;
+            transform: rotate(135deg);
+            transition: transform 0.3s ease-in-out;
+        }
+        &.active .grade-options {
+            display: flex;
+        }
+
+    }
+
+
+    #grade-value {
+        font-size: 20px;
+        color: $white;
+        text-align: center;
+        margin-top: 2px;
+    }
+
+
+    .grade-options {
+        position: absolute;
+        top: 40px;
+        display: flex;
+        flex-direction: column;
+        font-family: welcome-text;
+        
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+
+        background-color: $blue;
+        box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.3);
+        display: none;
+
+
+        #grade{
+            width: 100%;
+            color: white;
+            padding: 8px 30px;
+            font-size: 20px;
+            font-family: welcome-text;
+
+        }
+
+        #grade:hover {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+    }
+
+
+
+    button {
+        @extend %input;
+        width: 200px;
+        height: 30px; 
+        color: $white; 
+        font-family: welcome-text;
+        letter-spacing: 1px;
+        font-size: 20px;
+        box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
+        padding-right: 10px;
+
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+.output {
+    width: 100%;
+    height: auto;
+
+    padding: 20px;
+    margin-top: 30px;
+
+
+    .output-control {
+        overflow-x: hidden;
+    }
+
+
+    .course-dts {
+        width: 100%;
+        height: 50px;
+        padding: 0 20px;
+        background-color: $blue;
+        color: $white;
+        border-radius: 10px;
+
+        margin-bottom: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+
+        font-size: 20px;
+        font-family: welcome-text;
+
+        & >* {
+            padding: 5px;
+        }
+
+        &.delete {
+            scale: 90%;
+            transform: translateX(-75px);
+            transition: all 0.1s ease-in-out;
+        }
+
+        .remove-course {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+
+            background-color: red;
+            position: absolute;
+            top: 10px;
+            right: -35px;
+        }
+
+        &.deleted {
+            transform: translateX(-150%);
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+
+    
+    .msg {
+        text-align: center;
+        color: $blue;
+        font-family: welcome-text;
+        letter-spacing: 2px;
+    }
+    
+
+    button {
+        width: 100%;
+        height: 40px;
+        background-color: $blue;
+
+        font-family: welcome-text;
+        font-size: 18px;
+        letter-spacing: 2px;
+        color: $white;
+        outline: none;
+        border: 0;
+        border-radius: 8px;
+        margin-top: 50px;
+
+        box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.3);
+    }
+    
+
+}
+
+
+
+
+.grade-msg {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+    box-shadow: 1px 1px 30px 0px rgba(0, 0, 0, 0.9);
+
+    .msg {
+        width: 100%;
+        height: 400px;
+        background-color: $blue;
+        border-radius: 5px;
+    }
+}
+
+
+.blur {
+    position: absolute;
+    width: 1440px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    display: none;
+
+    margin:0;
+}
+
+
+.loader {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    border-right:1px solid $blue;
+
+    position: absolute;
+    z-index: 20000;
+    top: 40%;
+    left: 40%;
+
+    animation: anim1 2s infinite;
+    display: none;
+    opacity: 0;
+    transition: 0.1s  all ease-in-out;
+
+}
+
+
+@keyframes anim1 {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        opacity: 1;
+    }
+}
+
+
+
+.result-display {
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+
+    background-color: $white;
+    z-index: 2000;
+    position: absolute;
+    top: 20%;
+    left: 450px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    display: none;
+
+
+
+    #close {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+
+        background-color: red;
+        position: absolute;
+        top: -30px;
+        right: 0;
+    }
+
+    #happy-announcement {
+        width: auto;
+        height: 100px;
+        margin: 30px 20px 30px;
+    }
+
+    p {
+        font-family: welcome-text;
+    }
+
+    #course-Total {
+        display: none;
+    }
+
+    .unit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+
+        font-size: 15px;
+        text-transform: capitalize;
+        color: $blue;
+
+        #unit-Total {
+            margin-left: 5px;
+        }
+    }
+
+    .grade {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-family: welcome-text;
+        color: $blue;
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+
+        #gpa {
+            color: $blue;
+            font-size: 25px;
+        }
+    }
+
+}
+
+
+
+
+
+// .error-msg {
+//     width: 80%;
+//     height: 80px;
+//     padding: 25px 20px;
+//     border-radius: 10px;
+//     background-color: $white;
+//     z-index: 3000;
+//     position: absolute;
+//     top: 40%;
+//     left: 10%;
+
+//     font-size: 17px;
+//     font-family: welcome-text;
+
+//     letter-spacing: 2px;
+
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+
+//     .close-alert {
+//         width: 50%;
+//         height: 25px;
+//         padding: 2px 0 ;
+//         background-color: $blue;
+//         border-radius: 5px;
+//         margin-top: 20px;
+//         color: $white;
+//         text-align: center;
+//         letter-spacing: 5px;
+//     }
+// }
+
+
+
+
+
+
+// .info-tab {
+//     width: 100vw;
+//     height: 100vh;
+//     background-color: red;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     z-index: 2000;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+media (max-width:430px) {
+    body, .container {
+        width: 100vw;
+        overflow-x: hidden;
+        padding: 0;
+    }
+
+
+    header {
+        width: 375px;
+        height: auto;
+        padding: 20px;
+    }
+
+
+    #info {
+        margin-top: 10px;
+        margin-right: 0;
+    }
+
+    main {
+        width: 375px;
+        padding: 20px;
+        margin-top: 0;
+
+        .image {
+            height: 300px;
+
+
+            #hello-svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+
+
+        p {
+            font-size: 18px;
+            margin: 0;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 32px;
+                left: 100px;
+                width: 10px;
+                height: 10px;
+                background-color: $blue;
+                opacity: 30%;
+                border-radius: 30px;
+            }
+        }
+
+        
+    a {
+        width: 100%;
+        height: 40px;
+    }
+    }
+    
+
+
+
+
+    
+    .input {
+        width: 100%;
+        flex-wrap: wrap;
+
+        #course-name {
+            width: 200px;
+            height: 20px;
+            font-size: 13px;
+        }  
+
+        #course-unit {
+            width: 50px;
+            height: 20px;
+            font-size: 13px;
+        }
+
+        #course-grade {
+            width: 50px;
+            height: 20px;
+    
+            &::before {
+                top: 3px;
+                right: 10px;
+                width: 8px;
+                height: 8px;
+            }
+    
+
+            #grade-value {
+                font-size: 13px;
+            }
+
+            .grade-options {
+                top: 30px;
+        
+                #grade{
+                    padding: 5px 10px;
+                    font-size: 15px;
+                }
+            }
+            
+    
+    
+        }
+        
+        
+        button {
+            width: 120px;
+            height: 20px; 
+            font-size: 13px;
+        }
+
+
+    }
+            
+    .output {
+        width: 100%;
+        height: auto;
+
+        padding: 20px;
+        margin-top: 30px;
+
+
+        .output-control {
+            overflow-x: hidden;
+        }
+
+
+        .course-dts {
+            height: 30px;
+            padding: 0 10px;
+            font-size: 13px;
+        
+            &.delete {
+                transform: translateX(-20px);
+            }
+
+            .remove-course {
+                width: 20px;
+                height: 20px;
+                top: 4px;
+                right: -35px;
+            }
+
+            &.deleted {
+                transform: translateX(-150%);
+                transition: all 0.3s ease-in-out;
+            }
+
+        }
+
+
+    
+        button {
+            width: 100%;
+            height: 23px;
+            border-radius: 5px;
+        }  
+
+    }
+
+
+
+    .blur {
+        width: 450px;
+        height: 100vh;
+    }
+
+
+
+
+
+    
+.result-display {
+    width: 300px;
+    height: 300px;
+
+    top: 20%;
+    left: 35px;
+
+}
+
+
+
+
+
+}
+
+

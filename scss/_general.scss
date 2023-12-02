@@ -20,3 +20,58 @@ $white:#fff;
     font-family: welcome-text;
 }
 
+
+
+.blur {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+
+    display: none;
+
+    margin:0;
+}
+
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid $white;
+
+    position: absolute;
+    top: 25%;
+
+
+    display: none;
+    opacity: 1;
+
+    z-index: 20000;
+    animation: anim1 1.5s infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+#indicator {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $blue;
+}
+
+
+@keyframes anim1 {
+    0% {
+        transform:rotate(0deg);
+    }
+
+    50% {
+        transform:rotate(180deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+}

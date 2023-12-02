@@ -563,24 +563,13 @@ outputControl.addEventListener('click', e => {
 
 
 const introLoader = document.querySelector('.intro-loader');
-let introShow;
+
 
 setTimeout(() => {
-    container.removeChild(introLoader);
-    // introShow = true;
-    // localStorage.setItem('intro', JSON.stringify(introShow))
+    container.removeChild(introLoader)
+    document.querySelector('.calculator-page').classList.add('active')
 
-
-    localStorage.removeItem('intro')
-
-}, 4500)
-
-
-
-
-window.addEventListener('unload', e=> {
-    alert('tab close')
-})
+},3700)
 
 
 

@@ -10,29 +10,37 @@
 <body>
     <div class="container">
 
-        <div class="blur"></div>
-        <div class="loader"></div>
+        <!-- utility -->
+            <div class="blur"></div>
+        <!-- utility -->
 
-        <section class="intro-loader">
-            <div class="il">
-                <div class="logo">
-                    <p>Urban campus</p>
+        <!-- intro animation -->
+            <section class="intro-loader">
+                <div class="il">
+                    <div class="logo">
+                        <p>Urban campus</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        <!-- intro animation -->
 
 
         <section class="calculator-page">
             
-            <nav>
-                <div class="info">
-                    <div id="top"></div>
-                    <div id="bottom"></div>
-                </div>
-            </nav>
+            <!-- navigation -->
+
+                <nav>
+                    <div class="info">
+                        <div id="top"></div>
+                        <div id="bottom"></div>
+                    </div>
+                </nav>
+
+            <!-- navigation -->
+    
     
             <!-- calculator screen -->
-    
+
                 <form class="input">
                     <div class="input-control">
                         <input id="course-name" type="text">
@@ -64,7 +72,12 @@
                     <div class="output-control">  
                         
                     </div>
-                    <button id="calculate"> calculate </button>
+                    <button id="calculate"> calculate 
+
+                        <div class="loader">
+                            <div id="indicator"></div>
+                        </div>
+                    </button>
     
                 </section>
     
