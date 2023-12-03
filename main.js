@@ -1,4 +1,3 @@
-// input and out put constants
 const 
 
     body = document.querySelector('body'),
@@ -26,8 +25,6 @@ let isValid = false,
 ;
 
 
-// localStorage.removeItem('courseDts')
-
 
 
 inputTab.addEventListener('submit', e => {
@@ -39,37 +36,7 @@ inputTab.addEventListener('submit', e => {
     } 
 
     else {
-
         alert('please enter all fields')
-        // body.style.height = '100vh';
-        // body.style.overflow = 'hidden';
-
-        // container.style.overflow = 'hidden';
-        // container.style.height = '100vh';
-
-        // blur.style.display = 'block';
-        // let  msg = document.createElement('div');
-        // msg.className = 'error-msg';
-
-        // let removeMsg = document.createElement('p');
-        // removeMsg.innerText = 'close';
-        // removeMsg.className = 'close-alert'
-        // let msgValue = document.createTextNode('please enter all fields');
-
-        // msg.appendChild(msgValue)
-        // msg.appendChild(removeMsg)
-
-        // document.querySelector('body').appendChild(msg)
-
-        // removeMsg.addEventListener('click', () => {
-        //      body.style.height = 'auto';
-        //      body.style.overflow = 'auto';
-        //     container.style.overflow = 'auto';
-        //     container.style.height = 'auto';
-
-        //     blur.style.display = 'none';
-        //     msg.style.display = 'none';
-        // })
     }
     
 
@@ -339,7 +306,8 @@ const gradeXunit = () => {
 const gpa = () => {
     const courseTotal = document.querySelector('#course-Total').innerText,
         unitsTotal = document.querySelector('#unit-Total').innerText,
-        GPA = document.querySelector('#gpa')
+        GPA = document.querySelector('#gpa'),
+        message = document.querySelector('.message')
     ;
 
     let gpa = courseTotal / unitsTotal;
@@ -353,6 +321,13 @@ const gpa = () => {
        let x =  gpa.toString()
         GPA.innerText = x.slice(0,4)
     }
+
+
+    switch(gpa) {
+        case '> 1':
+            console.log('first class');
+        break;    
+    }
 }
 
 
@@ -363,7 +338,8 @@ const
     blur = document.querySelector('.blur'),
     resultDisplay = document.querySelector('.result-display'),
     closeBtn = document.querySelector('#close'),
-    loader = document.querySelector('.loader')
+    loader = document.querySelector('.loader'),
+    resultTab = document.querySelector('.result')
 ;    
 
 
@@ -378,6 +354,7 @@ calculate.addEventListener('click', () => {
     
         
         resultDisplay.style.display = 'none';
+        resultTab.style.display = 'none';
         loader.style.display = 'block';
     
         setTimeout(() => {
@@ -385,7 +362,8 @@ calculate.addEventListener('click', () => {
 
             loader.style.display = 'none';
             calculateGpa()
-            resultDisplay.style.display = 'flex';
+            resultTab.style.display = 'flex';
+            resultDisplay.style.display = 'block';
          
             closeBtn.addEventListener('click', () => {
                 container.style.overflow = 'auto';
@@ -395,9 +373,15 @@ calculate.addEventListener('click', () => {
     
                 blur.style.display = 'none';
                 resultDisplay.style.display = 'none';
+                resultTab.style.display = 'none';
+                
             })
 
+            
+
         }, 3000)
+
+
     } 
     
     else {
@@ -405,47 +389,6 @@ calculate.addEventListener('click', () => {
     }
 
 })
-
-
-// const showGrade = () => {
-//     loader.style.display = 'none';
-
-//     if(document.querySelector('.course-dts') != null) {
-    
-//         calculateGpa()
-//         resultDisplay.style.display = 'flex';
-     
-//         closeBtn.addEventListener('click', () => {
-//             container.style.overflow = 'auto';
-//             container.style.height = 'auto';
-//             body.style.height = 'auto';
-//             body.style.overflow = 'auto';
-
-//             blur.style.display = 'none';
-//             resultDisplay.style.display = 'none';
-//         })
-//     } else {
-//         alert('please enter course details')
-//     }
-// }
-
-
-
-
-// delete course
-
-
-// touch events on the course dts
-// let courseDts = document.querySelectorAll('.course-dts')
-
-// if(courseDts != 0) { 
-     
-//     courseDts.forEach(course => {
-//         course.addEventListener('touchstart', touchStart);
-//         course.addEventListener('touchmove', touchMove);
-//         course.addEventListener('touchend', touchEnd);
-//     })
-// }
 
 
 
@@ -518,47 +461,6 @@ outputControl.addEventListener('click', e => {
 
 
 
-// function touchStart(e) {
-
-//     isDragging = true;
-//     startPos = e.touches[0].clientX;
-//     body.style.overflow = 'hidden';
-// }
-
-// function touchMove(e) {
-
-//     if(isDragging) {
-//         let currentPosition = e.touches[0].clientX;
-//         currentTranslate = prevTranslate + currentPosition - startPos;
-
-//         console.log(currentTranslate)
-//         if(currentTranslate < -30 ) {
-//             e.target.classList.add('delete')
-//         }
-
-//        else if(currentTranslate > 0 ) {
-//             e.target.classList.remove('delete')
-//         }
-//     }
-
-// }
-
-// function touchEnd(e) {
-//     isDragging = false;
-
-//     if(currentTranslate < 0 ) {
-//         e.target.classList.add('delete');
-//     }
-
-//     if(currentTranslate > 0 ) {
-//         e.target.classList.remove('delete');
-//     }
-
-//     body.style.overflow = 'auto';
-
-// }
-
-
 
 
 
@@ -579,10 +481,12 @@ const closeinfo = document.getElementById('close-info')
 
 info.addEventListener('click', e=> {
     infoTab.classList.add('active');
+    infoTab.classList.remove('closed');
 })
 
 closeinfo.addEventListener('click', e=> {
     infoTab.classList.remove('active');
+    infoTab.classList.add('closed');
 })
 
 

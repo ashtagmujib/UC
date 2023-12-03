@@ -1,28 +1,35 @@
 
 
 
+.result {
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+}
+
 
 
 .result-display {
-    width: 300px;
-    height: 300px;
+    width: 251px;
+    height: 304px;
+
+    padding: 40px 30px 30px;
     border-radius: 10px;
 
     background-color: $white;
-    z-index: 2000;
-    position: absolute;
-    top: 20%;
-    left: 35px;
-
-
-    margin: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
 
     display: none;
-
 
 
     #close {
@@ -37,18 +44,79 @@
         right: 0;
     }
 
-    #happy-announcement {
-        width: auto;
-        height: 100px;
-        margin: 30px 20px 30px;
-    }
 
     p {
         font-family: welcome-text;
     }
 
+
+
+    .grade {
+        width: auto;
+        height: max-content;
+        font-family: welcome-text;
+        color: $blue;
+        position: relative;
+
+
+        #gpa {
+            color: $blue;
+            font-size: 36px;
+        }
+
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: -18px;
+
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: $blue;
+        }
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -23px;
+            left: 3px;
+
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: red;
+        }
+    }
+
+
+
+    .message {
+        width: 100%;
+        height: auto;
+        margin-top: 40%;
+
+        em {
+            font-size: 20px;
+            font-style: normal;
+            color: $blue;
+        }
+
+        & p {
+            font-size: 18px;
+            line-height: 15px;
+            text-align: left;
+            color: $blue;
+            opacity: 80%;
+        }
+    }
+
+
+
     #course-Total {
-        display: block;
+        display: none;
     }
 
     .unit {
@@ -56,8 +124,8 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        bottom: 20px;
-        left: 20px;
+        bottom: 10px;
+        left: 30px;
 
         font-size: 15px;
         text-transform: capitalize;
@@ -65,25 +133,6 @@
 
         #unit-Total {
             margin-left: 5px;
-        }
-    }
-
-    .grade {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-family: welcome-text;
-        color: $blue;
-
-        h1 {
-            margin-bottom: 15px;
-            font-size: 30px;
-        }
-
-        #gpa {
-            color: $blue;
-            font-size: 25px;
         }
     }
 

@@ -10,6 +10,7 @@
 
 .container {
     width: 100vw;
+    max-width: 1440px;
     height: auto;
     position: relative;
 
@@ -274,7 +275,7 @@ nav {
     padding: 20px;
 
     .info {
-        width: auto;
+        width: max-content;
         height: auto;
 
         padding: 10px;
@@ -426,6 +427,14 @@ nav {
     transition: all 0.3s ease-in-out;
 }
 
+.info-tab.closed {
+    transform: translateX(-100vw);
+    opacity: 0;
+    visibility: hidden;
+    
+    transition: all 0.3s ease-in-out;
+}
+
 
 #close-info {
     width: 20px;
@@ -433,8 +442,9 @@ nav {
     border-radius: 50%;
 
     background-color: red;
+    float: right;
 
-    margin: 10px 20px;
+    margin: 20px;
 }
 
 
