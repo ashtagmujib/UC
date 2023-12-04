@@ -321,13 +321,6 @@ const gpa = () => {
        let x =  gpa.toString()
         GPA.innerText = x.slice(0,4)
     }
-
-
-    switch(gpa) {
-        case '> 1':
-            console.log('first class');
-        break;    
-    }
 }
 
 
@@ -377,6 +370,31 @@ calculate.addEventListener('click', () => {
                 
             })
 
+
+            let msgDts = document.getElementById('gpa').innerText;
+            let classMsg = document.getElementById('class-msg')
+
+            if(msgDts >= 4.5) {
+                classMsg.innerText = 'congrats you are a first class student, keep up the good work'
+            }
+
+            else if(msgDts >= 3.5) {
+                classMsg.innerText = 'congrats you are a second class upper student, keep up the good work'
+            }
+
+            else if(msgDts >= 2.5) {
+                classMsg.innerText = 'congrats you are a third class student, try harder next time'
+            }
+
+            else if(msgDts >= 2.0) {
+                classMsg.innerText = 'congrats you are on the good standing list, try harder next time'
+            }
+
+            
+            else if(msgDts <= 2.0) {
+                classMsg.innerText = 'try harder next time, you gat this'
+            }
+            
             
 
         }, 3000)
@@ -482,11 +500,15 @@ const closeinfo = document.getElementById('close-info')
 info.addEventListener('click', e=> {
     infoTab.classList.add('active');
     infoTab.classList.remove('closed');
+    container.style.height = '100vh';
+    container.style.overflow = 'none';
 })
 
 closeinfo.addEventListener('click', e=> {
     infoTab.classList.remove('active');
     infoTab.classList.add('closed');
+    container.style.height = 'auto';
+    container.style.overflow = 'auto';
 })
 
 
