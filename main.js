@@ -533,3 +533,30 @@ closeinfo.addEventListener('click', e=> {
 
 
 
+
+
+
+
+
+
+
+let arrow = document.querySelector('.arrow');
+let head = document.querySelector('.head');
+let step = document.querySelector('.step');
+let dts = document.querySelector('.dts')
+
+arrow.addEventListener('click', e=> {
+    arrow.classList.toggle('active');
+
+    if(arrow.classList.contains('active')) {
+        head.classList.add('active')
+        step.classList.add('active')
+        dts.classList.add('active')
+    } 
+    
+    else {
+        head.classList.remove('active')
+        step.classList.remove('active')
+        dts.classList.remove('active')
+    }
+})
