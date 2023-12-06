@@ -533,6 +533,3 @@ closeinfo.addEventListener('click', e=> {
 
 
 
-
-
-
