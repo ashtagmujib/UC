@@ -539,24 +539,50 @@ closeinfo.addEventListener('click', e=> {
 
 
 
+let steps = document.querySelectorAll('.step')
 
-let arrow = document.querySelector('.arrow');
-let head = document.querySelector('.head');
-let step = document.querySelector('.step');
-let dts = document.querySelector('.dts')
+steps.forEach(step => {
 
-arrow.addEventListener('click', e=> {
-    arrow.classList.toggle('active');
+    step.addEventListener('click', (e)=> {
+        step.classList.toggle('active');
+        
+        steps.forEach(stp => {
+            if(stp !== step) {
+                stp.classList.remove('active')
+            }
+        })
+    })
 
-    if(arrow.classList.contains('active')) {
-        head.classList.add('active')
-        step.classList.add('active')
-        dts.classList.add('active')
-    } 
-    
-    else {
-        head.classList.remove('active')
-        step.classList.remove('active')
-        dts.classList.remove('active')
-    }
+
 })
+
+
+
+
+
+
+
+
+
+
+
+    // let head = document.querySelector('.head');
+    // let step = document.querySelector('.step');
+    // let dts = document.querySelector('.dts')
+
+    
+    // arr.addEventListener('click', e=> {
+    //     arr.classList.toggle('active');
+    
+    //     if(arr.classList.contains('active')) {
+    //         head.classList.add('active')
+    //         step.classList.add('active')
+    //         dts.classList.add('active')
+    //     } 
+        
+    //     else {
+    //         head.classList.remove('active')
+    //         step.classList.remove('active')
+    //         dts.classList.remove('active')
+    //     }
+    // })
