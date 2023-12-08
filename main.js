@@ -498,6 +498,7 @@ info.addEventListener('click', e=> {
     infoTab.classList.remove('closed');
     container.style.height = '100vh';
     container.style.overflow = 'none';
+    blur.style.display = 'block';
 })
 
 closeinfo.addEventListener('click', e=> {
@@ -505,6 +506,7 @@ closeinfo.addEventListener('click', e=> {
     infoTab.classList.add('closed');
     container.style.height = 'auto';
     container.style.overflow = 'auto';
+    blur.style.display = 'none';
 })
 
 
