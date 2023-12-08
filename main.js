@@ -17,11 +17,7 @@ const
 
 let isValid = false,
     courseSTore = [],
-    parsedCourseStore = [],
-    isDragging = false,
-    startPos = 0,
-    currentTranslate = 0,
-    prevTranslate = 0;
+    parsedCourseStore = []
 ;
 
 
@@ -512,33 +508,6 @@ closeinfo.addEventListener('click', e=> {
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let steps = document.querySelectorAll('.step')
 
 steps.forEach(step => {
@@ -557,32 +526,3 @@ steps.forEach(step => {
 })
 
 
-
-
-
-
-
-
-
-
-
-    // let head = document.querySelector('.head');
-    // let step = document.querySelector('.step');
-    // let dts = document.querySelector('.dts')
-
-    
-    // arr.addEventListener('click', e=> {
-    //     arr.classList.toggle('active');
-    
-    //     if(arr.classList.contains('active')) {
-    //         head.classList.add('active')
-    //         step.classList.add('active')
-    //         dts.classList.add('active')
-    //     } 
-        
-    //     else {
-    //         head.classList.remove('active')
-    //         step.classList.remove('active')
-    //         dts.classList.remove('active')
-    //     }
-    // })
