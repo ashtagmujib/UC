@@ -605,4 +605,36 @@ h1 {
 
 
 
+
+.instructions {
+    width: 100%;
+    height: 100vh;
+    padding: 25px;
+
+    position: absolute;
+    top: 0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: none;
+
+
+    #close-instruction {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        float: right;
+    }
+}
+
+
+.instructions.active {
+    display: block
+}
+
+
+
+
+
 @import 'calculate';

@@ -479,11 +479,12 @@ outputControl.addEventListener('click', e => {
 
 
 const introLoader = document.querySelector('.intro-loader');
-
+const instructionIcon = document.querySelector('.instruction-icon');
 
 setTimeout(() => {
     container.removeChild(introLoader)
-    document.querySelector('.calculator-page').classList.add('active')
+    document.querySelector('.calculator-page').classList.add('active');
+    instructionIcon.style.display = 'flex';
 
 },3700)
 
@@ -497,7 +498,7 @@ info.addEventListener('click', e=> {
     infoTab.classList.add('active');
     infoTab.classList.remove('closed');
     container.style.height = '100vh';
-    container.style.overflow = 'none';
+    container.style.overflowY = 'hidden';
     blur.style.display = 'block';
 })
 
@@ -505,7 +506,7 @@ closeinfo.addEventListener('click', e=> {
     infoTab.classList.remove('active');
     infoTab.classList.add('closed');
     container.style.height = 'auto';
-    container.style.overflow = 'auto';
+    container.style.overflowY = 'auto';
     blur.style.display = 'none';
 })
 
@@ -528,3 +529,22 @@ steps.forEach(step => {
 })
 
 
+
+instructionIcon.addEventListener('click', e=> {
+    let instructions = document.querySelector('.instructions');
+    let closeInstruction = document.getElementById('close-instruction');
+
+
+    instructions.classList.add('active');
+    instructionIcon.classList.add('opened')
+
+    container.style.overflowY = 'hidden';
+    container.style.height = '100vh';
+
+
+    closeInstruction.addEventListener('click', e=> {
+        
+    })
+
+
+})
