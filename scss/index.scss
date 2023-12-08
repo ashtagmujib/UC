@@ -160,14 +160,6 @@
     }
 
 
-    #course-name::placeholder, #course-unit::placeholder {
-        font-size: 15px;
-        color: $white;
-        opacity: 80%;
-    }
-
-
-
     #course-grade {
         @extend %input;
         width: 50px;
