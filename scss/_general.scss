@@ -99,9 +99,9 @@ $white:#fff;
     font-size: 25px;
     color: red;
 
-    animation: anim1 2s infinite;
+    animation: anim2 2s infinite;
 
-    @keyframes anim1 {
+    @keyframes anim2 {
         0% {
            transform: rotate(0); 
         }

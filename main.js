@@ -333,6 +333,7 @@ const
 
 
 calculate.addEventListener('click', () => {
+    instructionIcon.classList.add('opened');
     if(document.querySelector('.course-dts') != null) {
         body.style.height = '100vh';
         body.style.overflow = 'hidden';
@@ -363,6 +364,7 @@ calculate.addEventListener('click', () => {
                 blur.style.display = 'none';
                 resultDisplay.style.display = 'none';
                 resultTab.style.display = 'none';
+                instructionIcon.classList.remove('opened');
                 
             })
 
@@ -500,6 +502,8 @@ info.addEventListener('click', e=> {
     container.style.height = '100vh';
     container.style.overflowY = 'hidden';
     blur.style.display = 'block';
+
+    instructionIcon.classList.add('opened');
 })
 
 closeinfo.addEventListener('click', e=> {
@@ -508,6 +512,8 @@ closeinfo.addEventListener('click', e=> {
     container.style.height = 'auto';
     container.style.overflowY = 'auto';
     blur.style.display = 'none';
+
+    instructionIcon.classList.remove('opened');
 })
 
 
@@ -536,7 +542,7 @@ instructionIcon.addEventListener('click', e=> {
     let closeInstruction = document.getElementById('close-instruction');
 
     instructions.classList.add('active');
-    instructionIcon.classList.add('opened')
+    instructionIcon.classList.add('opened');
 
     container.style.overflowY = 'hidden';
     container.style.height = '100vh';
