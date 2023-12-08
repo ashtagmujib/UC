@@ -530,10 +530,10 @@ steps.forEach(step => {
 
 
 
+
 instructionIcon.addEventListener('click', e=> {
     let instructions = document.querySelector('.instructions');
     let closeInstruction = document.getElementById('close-instruction');
-
 
     instructions.classList.add('active');
     instructionIcon.classList.add('opened')
