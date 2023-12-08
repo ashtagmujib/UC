@@ -159,6 +159,15 @@
         font-size: 15px;
     }
 
+
+    #course-name::placeholder, #course-unit::placeholder {
+        font-size: 10px;
+        color: $white;
+        opacity: 50%;
+    }
+
+
+
     #course-grade {
         @extend %input;
         width: 50px;
@@ -440,6 +449,14 @@ nav {
 
 
 
+@media (min-width:664px) {
+    .info-tab {
+        height: 200vh;
+        padding-bottom: 30px;
+    }
+}
+
+
 #close-info {
     width: 20px;
     height: 20px;
@@ -476,6 +493,7 @@ h1 {
     font-family: welcome-text;
 }
 
+
 .step.active {
     height: auto;
     overflow-y: auto;
@@ -486,11 +504,11 @@ h1 {
     display: flex;
     justify-content: space-between;
 
-    padding: 10px 15px;
+    padding: 5px 15px;
     border-radius: 5px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-
+    z-index: 100;
 
 
     .arrow {
@@ -510,6 +528,7 @@ h1 {
 
 .step.active .head {
     background-color: $white;
+    transition: all 0.3s ease-in-out;
     
     p{
         color: $blue;
@@ -521,6 +540,7 @@ h1 {
     border: 1px solid $blue;
     border-left: none;
     border-bottom: none;
+    transition: all 0.3s ease-in-out;
 }
 
 
@@ -531,13 +551,13 @@ h1 {
 
 
 .dts {
-    padding: 10px 20px;
+    padding: 10px 15px;
     display: none;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-300px);
     transition: all 0.3s ease-in-out;
-    animation: showDts 0.6s ease-in-out forwards;
+    animation: showDts 0.5s ease-in-out forwards;
 
     ul {
         margin-top:10px;
@@ -568,7 +588,6 @@ h1 {
 
     transition: all 0.5s ease-in-out;
 }
-
 
 
 
