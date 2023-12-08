@@ -543,7 +543,11 @@ instructionIcon.addEventListener('click', e=> {
 
 
     closeInstruction.addEventListener('click', e=> {
-        
+        instructions.classList.remove('active');
+        instructionIcon.classList.remove('opened')
+
+        container.style.overflowY = 'auto';
+        container.style.height = 'auto';
     })
 
 
