@@ -82,13 +82,12 @@ $white:#fff;
 .instruction-icon {
     width: 40px;
     height: 40px;
-    border-radius: 25%;
-    border: 1px solid $blue;
+    border-radius: 50%;
     background-color: $white;
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
 
     position: fixed;
-    top: 80%;
+    bottom: 10%;
     right: 20px;
     z-index: 2;
 
@@ -130,5 +129,5 @@ $white:#fff;
 
 
 .instruction-icon.opened {
-    animation: none;
+    animation-play-state: paused;
 }
