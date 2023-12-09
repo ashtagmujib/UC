@@ -547,6 +547,11 @@ instructionIcon.addEventListener('click', e=> {
     container.style.overflowY = 'hidden';
     container.style.height = '100vh';
 
+    let num = document.querySelectorAll('#num');
+    num.forEach(number => {
+        number.style.display = 'flex';
+    })
+
 
     closeInstruction.addEventListener('click', e=> {
         instructions.classList.remove('active');
@@ -554,6 +559,10 @@ instructionIcon.addEventListener('click', e=> {
 
         container.style.overflowY = 'auto';
         container.style.height = 'auto';
+
+        num.forEach(number => {
+            number.style.display = 'none';
+        })
     })
 
 

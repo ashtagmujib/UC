@@ -131,3 +131,45 @@ $white:#fff;
 .instruction-icon.opened {
     animation-play-state: paused;
 }
+
+
+
+
+
+
+
+
+#num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: $white;
+    color: $blue;
+
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: -5px;
+
+    display: none;
+    z-index: 20000;
+    box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.num1 {
+    left: 10px;
+}
+
+.num2 {
+    left: 5px;
+}
+
+.num3 {
+    left: 10px;
+}
+
+.num4 {
+    left: 50%;
+}
