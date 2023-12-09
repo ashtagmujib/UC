@@ -34,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: remove-intro 2s forwards 2s;
+    animation: remove-intro 3s forwards 2s;
     transition: all 0.3s ease-out;
 }
 
@@ -76,12 +76,16 @@
         transform: scale(80%);
     }
 
+    60% {
+        transform: scale(100%);
+    }
+
     80% {
         transform: translateY(30px);
     }
 
     100% {
-        transform: translateY(0px) scale(100%);
+        transform: translateY(0px);
     }
 }
 
