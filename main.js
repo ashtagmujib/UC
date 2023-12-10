@@ -501,6 +501,7 @@ info.addEventListener('click', e=> {
     infoTab.classList.remove('closed');
     container.style.height = '100vh';
     container.style.overflowY = 'hidden';
+    
     blur.style.display = 'block';
 
     instructionIcon.classList.add('opened');
@@ -543,9 +544,9 @@ instructionIcon.addEventListener('click', e=> {
 
     instructions.classList.add('active');
     instructionIcon.classList.add('opened');
-
-    container.style.overflowY = 'hidden';
     container.style.height = '100vh';
+    container.style.overflowY = 'hidden';
+
 
     let num = document.querySelectorAll('#num');
     num.forEach(number => {
@@ -555,10 +556,10 @@ instructionIcon.addEventListener('click', e=> {
 
     closeInstruction.addEventListener('click', e=> {
         instructions.classList.remove('active');
-        instructionIcon.classList.remove('opened')
+        instructionIcon.classList.remove('opened');
 
-        container.style.overflowY = 'auto';
         container.style.height = 'auto';
+        container.style.overflowY = 'auto';
 
         num.forEach(number => {
             number.style.display = 'none';

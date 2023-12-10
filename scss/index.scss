@@ -415,6 +415,7 @@ nav {
 .info-tab {
     width: 80%;
     height: 100vh;
+    overflow-y: auto;
     padding: 20px;
     background-color: white;
     position: absolute;
@@ -616,7 +617,7 @@ h1 {
 
 .instructions {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding: 25px;
 
     position: absolute;
@@ -628,23 +629,22 @@ h1 {
 
 
 
-
     #close-instruction {
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: red;
         float: right;
+        background-color: red;
     }
 
     ul {
         width: 100%;
         height: 220px;
         padding: 10px;
-
+        overflow-y: auto;
 
         position: absolute;
-        bottom: 0%;
+        bottom: 0px;
         left: 0px;
         list-style: none;
         margin-top: 350px;
