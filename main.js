@@ -488,7 +488,7 @@ setTimeout(() => {
     document.querySelector('.calculator-page').classList.add('active');
     instructionIcon.style.display = 'flex';
 
-},3700)
+},4580)
 
 
 
@@ -501,8 +501,12 @@ info.addEventListener('click', e=> {
     infoTab.classList.remove('closed');
     container.style.height = '100vh';
     container.style.overflowY = 'hidden';
+
+
+    setTimeout(() => {
+        blur.style.display = 'block';
+    }, 500)
     
-    blur.style.display = 'block';
 
     instructionIcon.classList.add('opened');
 })
