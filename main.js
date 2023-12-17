@@ -309,6 +309,8 @@ const gpa = () => {
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
 
+    console.log(GPA)
+
     if(GPA.innerText.length < 2) {
         GPA.innerText = `${gpa}.0`;
     } 
@@ -318,7 +320,6 @@ const gpa = () => {
         GPA.innerText = x.slice(0,4)
     }
 }
-
 
 
 
@@ -497,10 +498,14 @@ const infoTab = document.querySelector('.info-tab')
 const closeinfo = document.getElementById('close-info')
 
 info.addEventListener('click', e=> {
-    infoTab.classList.add('active');
-    infoTab.classList.remove('closed');
-    container.style.height = '100vh';
-    container.style.overflowY = 'hidden';
+    infoTab.style.display = 'block'
+
+    setTimeout(() => {
+        infoTab.classList.add('active');
+        infoTab.classList.remove('closed');
+        container.style.height = '100vh';
+        container.style.overflowY = 'hidden';
+    }, 50)
 
 
     setTimeout(() => {
@@ -512,13 +517,17 @@ info.addEventListener('click', e=> {
 })
 
 closeinfo.addEventListener('click', e=> {
+    
     infoTab.classList.remove('active');
     infoTab.classList.add('closed');
-    container.style.height = 'auto';
-    container.style.overflowY = 'auto';
     blur.style.display = 'none';
-
     instructionIcon.classList.remove('opened');
+
+    setTimeout(() => {
+        infoTab.style.display = 'none';
+        container.style.height = 'auto';
+        container.style.overflowY = 'auto';
+    }, 6000)
 })
 
 

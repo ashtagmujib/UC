@@ -426,6 +426,7 @@ nav {
     transform: translateX(-100vw);
     // opacity: 0;
     // visibility: hidden;
+    display: none;
     
     &.active {
         transform: translateX(0);
