@@ -505,7 +505,7 @@ info.addEventListener('click', e=> {
         infoTab.classList.remove('closed');
         container.style.height = '100vh';
         container.style.overflowY = 'hidden';
-    }, 50)
+    }, 20)
 
 
     setTimeout(() => {
@@ -522,11 +522,12 @@ closeinfo.addEventListener('click', e=> {
     infoTab.classList.add('closed');
     blur.style.display = 'none';
     instructionIcon.classList.remove('opened');
+    container.style.height = '100vh';
+    container.style.overflowY = 'auto';
 
     setTimeout(() => {
-        infoTab.style.display = 'none';
         container.style.height = 'auto';
-        container.style.overflowY = 'auto';
+        infoTab.style.display = 'none';
     }, 6000)
 })
 
