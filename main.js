@@ -308,11 +308,11 @@ const gpa = () => {
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
 
-    if(GPA.innerText.length < 4) {
-        GPA.innerText = `${gpa}0`;
+    if(GPA.innerText.length < 3) {
+        GPA.innerText = `${gpa}.0`;
     } 
 
-    else if(GPA.innerText.length > 3) {
+    else if(GPA.innerText.length > 4) {
        let x =  gpa.toFixed(2);
        GPA.innerText = x;
     }
