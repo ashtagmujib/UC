@@ -302,22 +302,19 @@ const gradeXunit = () => {
 const gpa = () => {
     const courseTotal = document.querySelector('#course-Total').innerText,
         unitsTotal = document.querySelector('#unit-Total').innerText,
-        GPA = document.querySelector('#gpa'),
-        message = document.querySelector('.message')
+        GPA = document.querySelector('#gpa')
     ;
 
     let gpa = courseTotal / unitsTotal;
     GPA.innerText = gpa
-
-    console.log(GPA)
 
     if(GPA.innerText.length < 2) {
         GPA.innerText = `${gpa}.0`;
     } 
 
     else if(GPA.innerText.length > 3) {
-       let x =  gpa.toString()
-        GPA.innerText = x.slice(0,4)
+       let x =  gpa.toFixed(2);
+       GPA.innerText = x;
     }
 }
 
