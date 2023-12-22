@@ -507,7 +507,11 @@ info.addEventListener('click', e=> {
         container.style.overflowY = 'hidden';
     }, 20)
 
-    blur.style.display = 'block';
+
+    setTimeout(() => {
+        blur.style.display = 'block';
+    }, 500)
+    
 
     instructionIcon.classList.add('opened');
 })
