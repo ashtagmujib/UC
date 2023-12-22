@@ -373,25 +373,25 @@ calculate.addEventListener('click', () => {
             let msgDts = document.getElementById('gpa').innerText;
             let classMsg = document.getElementById('class-msg')
 
-            if(msgDts >= 4.5) {
-                classMsg.innerText = 'congrats you are a first class student, keep up the good work'
+            if(msgDts >= 4.50) {
+                classMsg.innerText = 'congrats you are a first class student, keep up the good work';
             }
 
-            else if(msgDts >= 3.5) {
-                classMsg.innerText = 'congrats you are a second class upper student, keep up the good work'
+            else if(msgDts >= 3.50) {
+                classMsg.innerText = 'congrats you are a second class upper student, keep up the good work';
             }
 
-            else if(msgDts >= 2.5) {
-                classMsg.innerText = 'congrats you are a third class student, try harder next time'
+            else if(msgDts >= 2.40) {
+                classMsg.innerText = 'congrats you are a second class lower student, keep up the good work';
             }
 
-            else if(msgDts >= 2.0) {
-                classMsg.innerText = 'congrats you are on the good standing list, try harder next time'
+            else if(msgDts >= 1.50) {
+                classMsg.innerText = 'you are a third class student, keep up the good work, i know you can do better';
             }
 
             
-            else if(msgDts <= 2.0) {
-                classMsg.innerText = 'try harder next time, you gat this'
+            else if(msgDts <= 1.49) {
+                classMsg.innerText = 'you had a pass, try harder next time, you gat this';
             }
             
             
@@ -489,7 +489,7 @@ setTimeout(() => {
     document.querySelector('.calculator-page').classList.add('active');
     instructionIcon.style.display = 'flex';
 
-},4580)
+},4135)
 
 
 
@@ -498,20 +498,18 @@ const infoTab = document.querySelector('.info-tab')
 const closeinfo = document.getElementById('close-info')
 
 info.addEventListener('click', e=> {
-    infoTab.style.display = 'block'
+    infoTab.style.display = 'block';
+    container.style.height = '100vh';
+    container.style.overflowY = 'hidden';
 
     setTimeout(() => {
         infoTab.classList.add('active');
         infoTab.classList.remove('closed');
-        container.style.height = '100vh';
-        container.style.overflowY = 'hidden';
-    }, 20)
-
+    }, 1)
 
     setTimeout(() => {
         blur.style.display = 'block';
     }, 500)
-    
 
     instructionIcon.classList.add('opened');
 })
@@ -520,15 +518,11 @@ closeinfo.addEventListener('click', e=> {
     
     infoTab.classList.remove('active');
     infoTab.classList.add('closed');
+
     blur.style.display = 'none';
     instructionIcon.classList.remove('opened');
-    container.style.height = '100vh';
     container.style.overflowY = 'auto';
 
-    setTimeout(() => {
-        container.style.height = 'auto';
-        infoTab.style.display = 'none';
-    }, 6000)
 })
 
 
