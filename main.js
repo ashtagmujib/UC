@@ -221,7 +221,7 @@ const calculatetotalUnit = () => {
         unitSum += unitNum[i] 
     }
 
-    // display total unit
+    // display total unitw
     const totalUnit = document.querySelector('#unit-Total')
     totalUnit.innerText = unitSum;
 
@@ -387,12 +387,12 @@ calculate.addEventListener('click', () => {
             }
 
             
-            else if(msgDts >= 1.0) {
-                classMsg.innerText = 'you had a pass, try harder next time, you gat this';
-            }
+            // else if(msgDts >= 1.0) {
+            //     classMsg.innerText = 'you had a pass, try harder next time, you gat this';
+            // }
 
     
-            else if(msgDts < 1.0) {
+            else if(msgDts < 1.5) {
                 classMsg.innerText = 'omo it looks like you failed, try harder next time, you gat this';
             }
             
